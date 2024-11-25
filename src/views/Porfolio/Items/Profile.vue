@@ -29,18 +29,18 @@
 export default {
   data() {
     return {
-      scrollY: 0, // To track scroll position
-      ticking: false, // To prevent unnecessary updates
+      scrollY: 0,
+      ticking: false,
     };
   },
   computed: {
     backgroundStyle() {
-   
-      const scale = 1 + this.scrollY / 1000;  // Adjust divisor to control zoom speed
-   
-      const translateY = this.scrollY * 0.5; // Adjust this value to control vertical movement
+      const scale = 1 + this.scrollY / 1000; 
+      const maxScale = this.scrollY > 165 ? 1.2 : scale; 
+      const translateY = this.scrollY * 0.2; 
+
       return {
-        transform: `translateY(${translateY}px) scale(${Math.min(scale, 1.2)})`, // Ensure scale doesn't go beyond 1.5
+        transform: `translateY(${translateY}px) scale(${Math.min(maxScale, 1.2)})`
       };
     },
   },
@@ -50,13 +50,15 @@ export default {
         window.requestAnimationFrame(() => {
           this.scrollY = window.scrollY;
           this.ticking = false;
+          this.$emit('background-style-updated', this.backgroundStyle); // Emit updated background style
         });
         this.ticking = true;
       }
     },
   },
   mounted() {
-    window.addEventListener('scroll', this.onScroll); // Listen to scroll event
+    window.addEventListener('scroll', this.onScroll); // Listen for scroll events
+    this.onScroll(); // Initialize on mount to send the initial style
   },
   destroyed() {
     window.removeEventListener('scroll', this.onScroll); // Clean up event listener
@@ -84,12 +86,12 @@ export default {
   width: 100%;
   height: 100%;
   background-image: url('@/assets/cyber4.gif'); /* Replace with your background image */
-  opacity: 30%;
+  opacity: 75%;
   background-size: cover;
   background-position: center;
   will-change: transform;
   z-index: -1;
-  transition: transform 0.2s ease-out; /* Smooth transition for zoom effect */
+  transition: transform 0.2s ease-out;
 }
 
 .content {

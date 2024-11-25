@@ -21,21 +21,25 @@
 
 <script lang="ts">
 import Header from '@/components/Header.vue';
+import HeaderContainer from '../HeaderContainer.vue'
 import Showcase from './Items/Showcase.vue';
 import Profile from './Items/Profile.vue';
 import Creative from './Items/Creative.vue';
 import Contact from './Items/Contact.vue';
 
 
+
 export default {
   name: 'Portfolio',
   components: {
+    HeaderContainer,
     Header,
     Profile,
     Showcase,
     Creative,
     Contact,
-  },
+
+},
   mounted() {
     this.scrollToHash();
   },
@@ -82,6 +86,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 .content {
   display: flex;
   flex-direction: column; /* Stack sections vertically */

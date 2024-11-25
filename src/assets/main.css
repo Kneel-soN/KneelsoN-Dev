@@ -1,11 +1,11 @@
 @import './base.css'; /* Import base styles if defined in base.css */
 
-/* Set the background color of the body to grey */
+
 body {
-  background-color: black /* Grey color */
+  background-color: #002331e8/* Grey color */
 }
 
-/* Style for anchor tags and elements with the class .green */
+
 a,
 .green {
   text-decoration: none; /* Remove default underline from links */
@@ -14,7 +14,6 @@ a,
   padding: 3px; /* Add some padding to the element */
 }
 
-/* Hover effect for anchor tags (applies if the user can hover) */
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2); /* Light background on hover */
