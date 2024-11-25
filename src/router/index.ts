@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Login from '@/views/Login.vue';  
 import Portfolio from '@/views/Porfolio/Porfolio.vue'
-
+import Parent from '@/views/Parent.vue'
 const routes = [
   {
     path: '/', 
@@ -11,7 +11,7 @@ const routes = [
   {
     path: '/portfolio',
     name: 'Portfolio',
-    component: Portfolio, 
+    component: Parent, 
   },
 ];
 

@@ -1,8 +1,6 @@
 <template>
   <header class="header">
-    <div class="logo">
-      <img src="@/assets/logo.svg" alt="Logo" />
-    </div>
+
     <nav class="navigation">
       <ul>
         <li><router-link to="/portfolio#profile" >Profile</router-link></li>
@@ -30,13 +28,13 @@ export default {
   transform: translateX(-50%); /* Adjust for exact centering */
   width: auto; /* Let the content size determine the width */
   z-index: 10; /* Make sure it's above the other content */
-  background-color: #3333331c;
+  background-color: #161515ab;
   color: white;
-  padding: 50px 20px; /* Adjust padding for a smaller header */
+  padding: 25px 20px; /* Adjust padding for a smaller header */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px; /* Smaller header height */
+  height: 10px; /* Smaller header height */
   border-radius: 30px; /* Optional, adds rounded corners */
   margin-top: 10px ;
 }
@@ -59,7 +57,7 @@ export default {
 .navigation a {
   color: white;
   text-decoration: none;
-  font-size: 1.5rem; /* Increase the font size */
+  font-size: 1rem; /* Increase the font size */
   font-weight: bold; /* Make the text bold for more impact */
   text-transform: uppercase; /* Optional: Makes the text uppercase */
 }
