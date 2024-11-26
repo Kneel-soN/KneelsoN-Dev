@@ -1,9 +1,11 @@
 <template>
   <div class="profile-page">
+    <!-- Parallax background section -->
     <div class="parallax-background" :style="backgroundStyle"></div>
+
     <div class="content">
       <div class="text-content">
-        <!-- The text to apply the glitch effect -->
+        <!-- Text with glitch effect -->
         <h3 style="font-family: 'Play', sans-serif">Hello, I am</h3>
         <h1 ref="glitchText" class="play-regular" style="color: #00b8ff">Neilson</h1>
         <h4 class="play-regular" style="margin-top: -25px; color: #00ff9f">
@@ -20,11 +22,11 @@
         <p class="raleway">
           I specialize in developing dynamic and responsive web applications using frameworks like
           <a href="https://nextjs.org" target="_blank"><strong>Next.js</strong></a> for server-side rendering and static site generation, and
-          <a href="https://vuejs.org" target="_blank"><strong>Vue.js</strong></a>  for building interactive front-end applications. For mobile
+          <a href="https://vuejs.org" target="_blank"><strong>Vue.js</strong></a> for building interactive front-end applications. For mobile
           applications, I have experience building native apps using <a href="https://reactnative.dev" target="_blank"><strong>React Native</strong></a>,
           which allows me to write cross-platform mobile applications, and
           <a href="https://developer.android.com/studio" target="_blank"><strong>Android Studio</strong></a> for native Android development. I am also well-versed in
-          backend development using technologies like <a href="https://nodejs.org" target="_blank"><strong>Node.js</strong></a>  and
+          backend development using technologies like <a href="https://nodejs.org" target="_blank"><strong>Node.js</strong></a> and
           <a href="https://expressjs.com" target="_blank"><strong>Express</strong></a> to build RESTful APIs. Additionally, I am comfortable working
           with databases, both SQL and NoSQL, including <a href="https://www.mysql.com/" target="_blank"><strong>MySQL</strong></a>,
           <a href="https://www.mongodb.com" target="_blank"><strong>MongoDB</strong></a>, and <a href="https://firebase.google.com" target="_blank"><strong>Firebase</strong></a>, which enables me to manage data
@@ -61,11 +63,12 @@
             <img src="../../../assets/Devxotle-w.png" style="width: 55px" alt="Devxotle" />
           </a>
         </div>
+        <!-- Download Resume button -->
+        <button class="styled-button" @click="downloadResume">Download Resume</button>
       </div>
     </div>
   </div>
 </template>
-
 
 <script lang="ts">
 import { create } from 'glitched-writer'
@@ -89,6 +92,7 @@ export default {
     },
   },
   methods: {
+    // Scroll handler to adjust background style
     onScroll() {
       if (!this.ticking) {
         window.requestAnimationFrame(() => {
@@ -99,12 +103,21 @@ export default {
         this.ticking = true
       }
     },
+    // Apply glitch effect to the text
     applyGlitchEffect() {
       const glitchTextElement = this.$refs.glitchText as HTMLElement
       const writer = create(glitchTextElement)
       let phrases = ['KneelsoN', 'Neilson', 'nɪ́jlsən']
 
       writer.queueWrite(phrases, 2000, true)
+    },
+    // Function to download resume
+    downloadResume() {
+      // Create a temporary anchor element
+      const link = document.createElement('a');
+      link.href = '/NeilsonDiñosoResume.pdf'; // Path to the PDF in the public folder
+      link.download = 'NeilsonDiñosoResume.pdf'; // Set the download file name
+      link.click(); // Trigger the download
     },
   },
   mounted() {
@@ -121,6 +134,33 @@ export default {
 <style scoped>
 /* Importing the font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+.styled-button {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text color */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Padding around text */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Ensure it's inline-block */
+  font-size: 16px; /* Set font size */
+  margin: 10px 0; /* Margin for spacing */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and scale */
+}
+
+/* Button hover effect */
+.styled-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Button focus effect */
+.styled-button:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 10px rgba(72, 144, 228, 0.5); /* Add a glow effect */
+}
 
 .play-regular {
   font-family: 'Play', sans-serif;
@@ -254,13 +294,4 @@ p {
   line-height: 1.6;
   margin-bottom: 15px;
 }
-
-.raleway {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400; /* You can change the weight value for different visual effects */
-  font-style: normal;
-  font-optical-sizing: auto;
-}
-
-
 </style>

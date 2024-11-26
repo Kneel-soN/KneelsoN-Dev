@@ -1,7 +1,12 @@
 <template>
   <!-- Outer container that will center the content on the page -->
   <div style="align-self: center align-items:center;" class="outer-container">
-    <div class='load'></div>
+    <div class='load1'></div>
+    <div class='load2'></div>
+    <div class='load3'></div>
+    <div class='load4'></div>
+    <div class='load5'></div>
+    <div class='load6'></div>
     <div class="login-container">
       <h2 class="text_label">Kneel-soN</h2>
       <form @submit.prevent="handleSubmit">
@@ -96,8 +101,27 @@ const handleSubmit = () => {
   align-items: center; 
 
 }
-.load{
+.load1{
   background-image: url('@/assets/cyber4.gif'); /* Replace with your background image */
+}
+
+.load2{
+  background-image: url('@/assets/image2.jpg'); /* Replace with your background image */
+}
+.load3{
+  background-image: url('@/assets/Devxotle-w.png'); /* Replace with your background image */
+}
+
+.load4{
+  background-image: url('@/assets/facebook.png'); /* Replace with your background image */
+}
+
+.load5{
+  background-image: url('@/assets/github-icon.png'); /* Replace with your background image */
+}
+
+.load6{
+  background-image: url('@/assets/linkedin-logo.png'); /* Replace with your background image */
 }
 
 .login-container {
