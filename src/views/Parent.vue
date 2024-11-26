@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import Portfolio from '@/views/Porfolio/Porfolio.vue'
 </script>
@@ -9,7 +8,4 @@ import Portfolio from '@/views/Porfolio/Porfolio.vue'
   </main>
 </template>
 
-<style scoped>
-
-
-</style>
+<style scoped></style>

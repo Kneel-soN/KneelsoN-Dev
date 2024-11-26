@@ -1,5 +1,5 @@
-import './assets/main.css'  // If you have custom styles
-import 'vuetify/styles'      // Vuetify's default styles
+import './assets/main.css' // If you have custom styles
+import 'vuetify/styles' // Vuetify's default styles
 
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
@@ -13,8 +13,8 @@ import { createVuetify } from 'vuetify'
 
 // Create Vuetify instance
 const vuetify = createVuetify({
-  components,      // Add Vuetify components
-  directives,      // Add Vuetify directives
+  components, // Add Vuetify components
+  directives, // Add Vuetify directives
 })
 
 const app = createApp(App)

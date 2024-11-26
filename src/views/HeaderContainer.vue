@@ -1,12 +1,11 @@
 <template>
-  
   <div class="header-container">
-    <Header :backgroundImage="backgroundImage"/>
+    <Header :backgroundImage="backgroundImage" />
   </div>
 </template>
 
 <script lang="ts">
-import Header from '@/components/Header.vue';
+import Header from '@/components/Header.vue'
 
 export default {
   name: 'HeaderContainer',
@@ -16,17 +15,13 @@ export default {
   props: {
     backgroundImage: {
       type: String,
-      required: true,  
+      required: true,
     },
   },
-};
+}
 </script>
 
 <style scoped>
-
 .header-container {
-
 }
-
-
 </style>

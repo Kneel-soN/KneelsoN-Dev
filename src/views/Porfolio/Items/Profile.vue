@@ -2,71 +2,145 @@
   <div class="profile-page">
     <div class="parallax-background" :style="backgroundStyle"></div>
     <div class="content">
-      <h1>Profile Page</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non massa sed 
-        nisi volutpat volutpat at ut odio. Morbi tincidunt, nunc et consectetur lacinia, 
-        erat arcu cursus nisl, ac varius justo nisi a erat. Sed efficitur, lorem at 
-        consectetur posuere, ipsum sapien laoreet elit, sed tristique nisl nunc ac nisl.
-      </p>
-      <p>
-        Fusce quis augue nec ligula lacinia bibendum. Sed ut perspiciatis unde omnis 
-        iste natus error sit voluptatem accusantium doloremque laudantium, totam rem 
-        aperiam. Quisque vitae leo nec urna faucibus interdum. Vivamus euismod 
-        fringilla diam, eu bibendum urna ullamcorper nec.
-      </p>
-      <p>
-        Nulla facilisi. Aenean varius orci sit amet magna varius, et sodales metus 
-        blandit. Integer ac ligula at libero aliquet sodales. Curabitur tincidunt, 
-        nulla id scelerisque dignissim, urna metus sagittis massa, at efficitur 
-        urna ex vitae odio.
-      </p>
+      <div class="text-content">
+        <!-- The text to apply the glitch effect -->
+        <h3 style="font-family: 'Play', sans-serif">Hello, I am</h3>
+        <h1 ref="glitchText" class="play-regular" style="color: #00b8ff">Neilson</h1>
+        <h4 class="play-regular" style="margin-top: -25px; color: #00ff9f">
+          Aspiring Software Engineer
+        </h4>
+
+        <!-- Paragraphs with the raleway class applied -->
+        <p class="raleway">
+          With 3 years of hands-on programming experience and 1 year of professional work
+          experience, I have developed strong problem-solving and development skills. I have built
+          and maintained multiple web applications and contributed to several projects using modern
+          technologies and frameworks.
+        </p>
+        <p class="raleway">
+          I specialize in developing dynamic and responsive web applications using frameworks like
+          <a href="https://nextjs.org" target="_blank"><strong>Next.js</strong></a> for server-side rendering and static site generation, and
+          <a href="https://vuejs.org" target="_blank"><strong>Vue.js</strong></a>  for building interactive front-end applications. For mobile
+          applications, I have experience building native apps using <a href="https://reactnative.dev" target="_blank"><strong>React Native</strong></a>,
+          which allows me to write cross-platform mobile applications, and
+          <a href="https://developer.android.com/studio" target="_blank"><strong>Android Studio</strong></a> for native Android development. I am also well-versed in
+          backend development using technologies like <a href="https://nodejs.org" target="_blank"><strong>Node.js</strong></a>  and
+          <a href="https://expressjs.com" target="_blank"><strong>Express</strong></a> to build RESTful APIs. Additionally, I am comfortable working
+          with databases, both SQL and NoSQL, including <a href="https://www.mysql.com/" target="_blank"><strong>MySQL</strong></a>,
+          <a href="https://www.mongodb.com" target="_blank"><strong>MongoDB</strong></a>, and <a href="https://firebase.google.com" target="_blank"><strong>Firebase</strong></a>, which enables me to manage data
+          efficiently and scale applications.
+        </p>
+        <p class="raleway">
+          Currently, I am enrolled at the
+          <a href="https://www.tip.edu.ph/" target="_blank"><strong>Technological Institute of the Philippines - Manila</strong></a>, where I am pursuing a degree
+          in Computer Engineering. In addition to my studies, I am working as a Backend Developer at
+          <strong>LRY Marketing</strong>, where I am responsible for developing and maintaining
+          backend systems, optimizing database performance, and ensuring the security and
+          scalability of our applications. 
+        </p>
+      </div>
+
+      <!-- Flex Container for Image and Social Icons (Vertically stacked) -->
+      <div class="image-and-social">
+        <div class="image-content">
+          <img src="../../../assets/image2.jpg" alt="Profile Image" />
+        </div>
+
+        <div class="social-icons">
+          <a href="https://github.com/Kneel-soN" target="_blank">
+            <img src="../../../assets/github-icon.png" alt="GitHub" />
+          </a>
+
+          <a href="https://www.linkedin.com/in/neilsondinoso/" target="_blank">
+            <img src="../../../assets/linkedin-logo.png" alt="LinkedIn" />
+          </a>
+          <a href="https://www.facebook.com/neeeil24/" target="_blank">
+            <img src="../../../assets/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61559666672259" target="_blank">
+            <img src="../../../assets/Devxotle-w.png" style="width: 55px" alt="Devxotle" />
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
+
 <script lang="ts">
+import { create } from 'glitched-writer'
+
 export default {
   data() {
     return {
       scrollY: 0,
       ticking: false,
-    };
+    }
   },
   computed: {
     backgroundStyle() {
-      const scale = 1 + this.scrollY / 1000; 
-      const maxScale = this.scrollY > 165 ? 1.2 : scale; 
-      const translateY = this.scrollY * 0.2; 
+      const scale = 1 + this.scrollY / 1000
+      const maxScale = this.scrollY > 165 ? 1.2 : scale
+      const translateY = this.scrollY * 0.2
 
       return {
-        transform: `translateY(${translateY}px) scale(${Math.min(maxScale, 1.2)})`
-      };
+        transform: `translateY(${translateY}px) scale(${Math.min(maxScale, 1.2)})`,
+      }
     },
   },
   methods: {
     onScroll() {
       if (!this.ticking) {
         window.requestAnimationFrame(() => {
-          this.scrollY = window.scrollY;
-          this.ticking = false;
-          this.$emit('background-style-updated', this.backgroundStyle); // Emit updated background style
-        });
-        this.ticking = true;
+          this.scrollY = window.scrollY
+          this.ticking = false
+          this.$emit('background-style-updated', this.backgroundStyle) // Emit updated background style
+        })
+        this.ticking = true
       }
+    },
+    applyGlitchEffect() {
+      const glitchTextElement = this.$refs.glitchText as HTMLElement
+      const writer = create(glitchTextElement)
+      let phrases = ['KneelsoN', 'Neilson']
+
+      writer.queueWrite(phrases, 2000, true)
     },
   },
   mounted() {
-    window.addEventListener('scroll', this.onScroll); // Listen for scroll events
-    this.onScroll(); // Initialize on mount to send the initial style
+    window.addEventListener('scroll', this.onScroll) // Listen for scroll events
+    this.onScroll() // Initialize on mount to send the initial style
+    this.applyGlitchEffect() // Apply the glitch effect to the text
   },
   destroyed() {
-    window.removeEventListener('scroll', this.onScroll); // Clean up event listener
+    window.removeEventListener('scroll', this.onScroll) // Clean up event listener
   },
-};
+}
 </script>
 
 <style scoped>
+/* Importing the font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+.play-regular {
+  font-family: 'Play', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.play-bold {
+  font-family: 'Play', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.raleway {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400; /* You can adjust the weight here */
+  font-style: normal;
+  font-optical-sizing: auto; /* Automatically adjusts the font's optical size for better readability */
+}
+
 .profile-page {
   position: relative;
   display: flex;
@@ -97,14 +171,60 @@ export default {
 .content {
   position: relative;
   z-index: 2;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
   color: white;
   padding: 50px;
-  max-width: 800px;
-  background-color: rgba(14, 13, 13, 0.733);
+  max-width: 1200px;
+  background-color: rgba(14, 13, 13, 0.8);
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
   animation-delay: 0.5s;
+  border-radius: 50px;
+}
+
+.text-content {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.image-and-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 175px;
+}
+
+.image-content img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 90%;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+
+.social-icons a {
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
 }
 
 @keyframes fadeIn {
@@ -114,6 +234,15 @@ export default {
   100% {
     opacity: 1;
   }
+}
+
+a {
+  text-decoration: none;  /* No underline on links */
+  color: white;  /* White color for the link */
+}
+
+a:hover {
+  text-decoration: underline; /* Optional: underline on hover */
 }
 
 h1 {
@@ -126,4 +255,13 @@ p {
   line-height: 1.6;
   margin-bottom: 15px;
 }
+
+.raleway {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400; /* You can change the weight value for different visual effects */
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
+
 </style>

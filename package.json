@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@vueuse/motion": "^2.2.6",
+    "glitched-writer": "^2.0.29",
     "pinia": "^2.2.6",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5",

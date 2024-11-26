@@ -1,8 +1,7 @@
 <template>
   <div class="card">
-    <img :src="image" alt="Card Image" class="card-image"/>
+    <img :src="image" alt="Card Image" class="card-image" />
     <div class="card-content">
-    
       <h3 class="card-title">
         <a :href="link" target="_blank">{{ title }}</a>
       </h3>
@@ -11,28 +10,28 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 export default {
   name: 'Card',
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     image: {
       type: String,
-      required: true
+      required: true,
     },
     link: {
       type: String,
-      required: true
-    }
-  }
-};
+      required: true,
+    },
+  },
+}
 </script>
 
 <style scoped>
@@ -51,7 +50,6 @@ export default {
   margin-left: 50px;
   object-fit: cover;
   border-radius: 10px;
-
 }
 
 .card-content {

@@ -1,23 +1,7 @@
 @import './base.css'; /* Import base styles if defined in base.css */
 
-
 body {
-  background-color: #002331e8/* Grey color */
-}
-
-
-a,
-.green {
-  text-decoration: none; /* Remove default underline from links */
-  color: hsla(160, 100%, 37%, 1); /* Set color to greenish tone */
-  transition: 0.4s; /* Smooth transition for hover effect */
-  padding: 3px; /* Add some padding to the element */
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2); /* Light background on hover */
-  }
+  background-color: #002331e8; /* Grey color */
 }
 
 /* Responsive design for screens larger than 1024px */

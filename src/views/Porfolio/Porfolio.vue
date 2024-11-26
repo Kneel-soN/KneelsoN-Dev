@@ -20,14 +20,12 @@
 </template>
 
 <script lang="ts">
-import Header from '@/components/Header.vue';
+import Header from '@/components/Header.vue'
 import HeaderContainer from '../HeaderContainer.vue'
-import Showcase from './Items/Showcase.vue';
-import Profile from './Items/Profile.vue';
-import Creative from './Items/Creative.vue';
-import Contact from './Items/Contact.vue';
-
-
+import Showcase from './Items/Showcase.vue'
+import Profile from './Items/Profile.vue'
+import Creative from './Items/Creative.vue'
+import Contact from './Items/Contact.vue'
 
 export default {
   name: 'Portfolio',
@@ -38,68 +36,64 @@ export default {
     Showcase,
     Creative,
     Contact,
-
-},
+  },
   mounted() {
-    this.scrollToHash();
+    this.scrollToHash()
   },
   watch: {
     '$route.hash': function () {
-      this.scrollToHash();
+      this.scrollToHash()
     },
   },
   methods: {
     scrollToHash() {
-      const hash = this.$route.hash;
+      const hash = this.$route.hash
       if (hash) {
-        const element = document.querySelector(hash);
+        const element = document.querySelector(hash)
         if (element) {
-          const headerHeight = document.querySelector('.header')?.clientHeight || 0;
-          const offset = 50; // Adjust this offset if needed
-          const speed = 500; // Scroll speed in milliseconds
+          const headerHeight = document.querySelector('.header')?.clientHeight || 0
+          const offset = 50 // Adjust this offset if needed
+          const speed = 500 // Scroll speed in milliseconds
 
           // Calculate target position
-          const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight - offset;
-          this.smoothScrollTo(targetPosition, speed);
+          const targetPosition =
+            element.getBoundingClientRect().top + window.pageYOffset - headerHeight - offset
+          this.smoothScrollTo(targetPosition, speed)
         }
       }
     },
     smoothScrollTo(target: number, duration: number) {
-      const start = window.pageYOffset;
-      const distance = target - start;
-      const startTime = performance.now();
+      const start = window.pageYOffset
+      const distance = target - start
+      const startTime = performance.now()
 
       const scroll = (currentTime: number) => {
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
-        window.scrollTo(0, start + distance * progress);
+        const timeElapsed = currentTime - startTime
+        const progress = Math.min(timeElapsed / duration, 1)
+        window.scrollTo(0, start + distance * progress)
 
         if (timeElapsed < duration) {
-          requestAnimationFrame(scroll); // Continue animating until the duration is completed
+          requestAnimationFrame(scroll) // Continue animating until the duration is completed
         }
-      };
+      }
 
-      requestAnimationFrame(scroll); // Start the smooth scroll animation
+      requestAnimationFrame(scroll) // Start the smooth scroll animation
     },
   },
-};
+}
 </script>
 
 <style scoped>
-
-
 .content {
   display: flex;
   flex-direction: column; /* Stack sections vertically */
   align-items: center; /* Center sections horizontally */
-
 }
 
 section {
   width: 100%; /* Ensure sections take full width */
 
   box-sizing: border-box; /* Include padding in width/height calculations */
-
 }
 
 html {
