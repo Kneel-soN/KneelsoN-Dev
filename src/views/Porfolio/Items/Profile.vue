@@ -136,8 +136,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 .styled-button {
-  background-color: #4CAF50; /* Green background */
-  color: white; /* White text color */
+  background-color: #00ff9f; /* Green background */
+  color: black; /* White text color */
   border: none; /* Remove default border */
   padding: 10px 20px; /* Padding around text */
   text-align: center; /* Center text */
@@ -148,11 +148,12 @@ export default {
   cursor: pointer; /* Pointer cursor on hover */
   border-radius: 5px; /* Rounded corners */
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and scale */
+
 }
 
 /* Button hover effect */
 .styled-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #00b8ff; /* Darker green on hover */
   transform: scale(1.05); /* Slightly increase size on hover */
 }
 
