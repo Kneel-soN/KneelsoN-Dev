@@ -1,16 +1,20 @@
 <template>
+
   <header class="fullViewportHeader">
+    <div v-motion-slide-top >
     <div class="headerStyle">
       <nav class="navigation">
         <ul>
           <li><router-link to="/portfolio#profile">Profile</router-link></li>
           <li><router-link to="/portfolio#showcase">Showcase</router-link></li>
-          <li><router-link to="/portfolio#creative">Creative</router-link></li>
+          <li><router-link to="/portfolio#creative">Creatives</router-link></li>
           <li><router-link to="/portfolio#contact ">Contact</router-link></li>
         </ul>
       </nav>
     </div>
+  </div>
   </header>
+
 </template>
 
 <script lang="ts">
@@ -25,7 +29,6 @@ export default {
   top: 0;
   left: 0;
   width: 100%; /* Full width */
-  height: 18vh; /* Full viewport height */
   z-index: 10; /* Ensure it stays above the rest of the content */
   color: white;
   display: flex;

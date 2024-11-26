@@ -27,8 +27,9 @@
 <style scoped>
 .creative-page {
   text-align: center; /* Center the text */
-  padding: 20px; /* Add some padding */
+
   color: #fdfdfd; /* Dark text for contrast */
+  margin-top: 40px;
 }
 
 h1 {

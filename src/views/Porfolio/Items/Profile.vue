@@ -102,7 +102,7 @@ export default {
     applyGlitchEffect() {
       const glitchTextElement = this.$refs.glitchText as HTMLElement
       const writer = create(glitchTextElement)
-      let phrases = ['KneelsoN', 'Neilson']
+      let phrases = ['KneelsoN', 'Neilson', 'nɪ́jlsən']
 
       writer.queueWrite(phrases, 2000, true)
     },
@@ -149,7 +149,6 @@ export default {
   align-items: center;
   height: 100vh;
   text-align: center;
-  padding: 20px;
   overflow: hidden;
 }
 
@@ -176,7 +175,7 @@ export default {
   align-items: flex-start;
   text-align: left;
   color: white;
-  padding: 50px;
+  padding: 30px;
   max-width: 1200px;
   background-color: rgba(14, 13, 13, 0.8);
   opacity: 0;

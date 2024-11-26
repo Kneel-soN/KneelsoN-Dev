@@ -2,9 +2,7 @@
   <div v-motion-fade-visible class="showcase-page">
     <h1>My Works and Experience</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ Built by Using These Frameworks and Technologies
     </p>
     <p>
       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -90,9 +88,23 @@ export default {
           link: 'https://muscle-control-gym-admin.vercel.app/', // Add a link for the third slide
         },
         {
+          title: 'eScanMO',
+          description:
+            'This is a description inside the card component. You can use this as a showcase of your content.',
+          image: 'https://via.placeholder.com/100',
+          link: 'https://os-prelim-exam.vercel.app', // Add a link for the fourth slide
+        },
+        {
           title: 'Operating System Scheduling Simulator',
           description:
             'This is a description inside the card component. You can use this as a showcase of your content.',
+          image: 'https://via.placeholder.com/100',
+          link: 'https://os-prelim-exam.vercel.app', // Add a link for the fourth slide
+        },
+        {
+          title: 'VetSharp',
+          description:
+            '3 day Petshop',
           image: 'https://via.placeholder.com/100',
           link: 'https://os-prelim-exam.vercel.app', // Add a link for the fourth slide
         },
@@ -105,7 +117,7 @@ export default {
 <style scoped>
 .showcase-page {
   text-align: center;
-  padding: 20px;
+  padding: 100px;
   color: #fdfdfd;
   background-color: rgba(0, 0, 0, 1); /* Black background with 75% opacity */
 }

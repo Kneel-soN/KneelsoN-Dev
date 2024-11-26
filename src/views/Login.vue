@@ -1,6 +1,7 @@
 <template>
   <!-- Outer container that will center the content on the page -->
   <div style="align-self: center align-items:center;" class="outer-container">
+    <div class='load'></div>
     <div class="login-container">
       <h2 class="text_label">Kneel-soN</h2>
       <form @submit.prevent="handleSubmit">
@@ -94,6 +95,9 @@ const handleSubmit = () => {
   justify-content: center; 
   align-items: center; 
 
+}
+.load{
+  background-image: url('@/assets/cyber4.gif'); /* Replace with your background image */
 }
 
 .login-container {
