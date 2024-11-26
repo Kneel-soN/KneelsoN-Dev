@@ -7,6 +7,7 @@
     <div class='load4'></div>
     <div class='load5'></div>
     <div class='load6'></div>
+    <div class='load7'></div>
     <div class="login-container">
       <h2 class="text_label">Kneel-soN</h2>
       <form @submit.prevent="handleSubmit">
@@ -123,7 +124,9 @@ const handleSubmit = () => {
 .load6{
   background-image: url('@/assets/linkedin-logo.png'); /* Replace with your background image */
 }
-
+.load7{
+  background-image: url('@/assets/downloads.png'); /* Replace with your background image */
+}
 .login-container {
   width: 100%; /* Full width */
   max-width: 400px; /* Limit width to 400px */
