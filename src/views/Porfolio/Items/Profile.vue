@@ -63,8 +63,11 @@
             <img src="../../../assets/Devxotle-w.png" style="width: 55px" alt="Devxotle" />
           </a>
         </div>
-        <!-- Download Resume button -->
-        <button class="styled-button" @click="downloadResume">Download Resume</button>
+        <button class="styled-button" @click="downloadResume">
+  <img src="../../../assets/downloads.png" alt="Download Icon" class="button-icon" />
+  Download Resume
+</button>
+
       </div>
     </div>
   </div>
@@ -161,6 +164,12 @@ export default {
 .styled-button:focus {
   outline: none; /* Remove focus outline */
   box-shadow: 0 0 10px rgba(72, 144, 228, 0.5); /* Add a glow effect */
+}
+.styled-button img.button-icon {
+  width: 20px; /* Adjust the image size */
+  height: 20px;
+  margin-right: 8px; /* Space between image and text */
+  transform: translateY(0.20rem); 
 }
 
 .play-regular {
