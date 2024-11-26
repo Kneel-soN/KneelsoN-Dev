@@ -110,7 +110,7 @@ export default {
     applyGlitchEffect() {
       const glitchTextElement = this.$refs.glitchText as HTMLElement
       const writer = create(glitchTextElement)
-      let phrases = ['KneelsoN', 'Neilson', 'nɪ́jlsən']
+      let phrases = [ 'Neilson', 'KneelsoN','nɪ́jlsən', 'ニールソン']
 
       writer.queueWrite(phrases, 2000, true)
     },
