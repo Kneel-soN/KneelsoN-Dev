@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '@/views/Login.vue'
 import LoginContainer from '@/views/LoginContainer.vue'
 import Parent from '@/views/Parent.vue'
 const routes = [

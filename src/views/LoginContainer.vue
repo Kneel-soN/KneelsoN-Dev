@@ -19,7 +19,7 @@
   /* Flexbox to center the login component */
   .login-container {
     display: flex;
-    justify-content: center;  /* Center horizontally */
+    justify-content: center; 
     align-items: center;      /* Center vertically */
     height: 100vh;            /* Full viewport height */
     width: 100vw;              /* Full width */

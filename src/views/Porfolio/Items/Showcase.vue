@@ -1,20 +1,21 @@
 <template>
   <div v-motion-fade-visible class="showcase-page">
     <h1>My Works and Experience</h1>
-    <p>
- Built by Using These Frameworks and Technologies
-    </p>
-    <p>
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-      accusantium doloremque laudantium, totam rem aperiam.
-    </p>
-    <p>
-      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-      consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-      est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
-    </p>
+    <p style="margin-bottom: 50px">Built by Using These Frameworks and Technologies</p>
+
+    <v-row class="image-row" justify="center">
+      <v-col v-for="(image, index) in imageList" :key="index" cols="1" class="pa-2">
+        <a :href="image.link" target="_blank" class="image-link">
+          <img
+            :src="image.src"
+            :alt="image.alt"
+            class="img-fluid hover-effect"
+            :class="getCustomClass(image.alt)"
+          />
+        </a>
+      </v-col>
+    </v-row>
+
     <div v-motion-pop-visible class="card-section">
       <v-container>
         <v-carousel
@@ -24,23 +25,14 @@
           cycle
           progress="primary"
         >
-          <!-- Previous Button -->
           <template v-slot:prev="{ props }">
-            <v-btn color="transparent" @click="props.onClick" style="color: blue">
-              &lt;
-              <!-- This is the 'less than' symbol ( < ) -->
-            </v-btn>
+            <v-btn color="transparent" @click="props.onClick" style="color: blue"> &lt; </v-btn>
           </template>
 
-          <!-- Next Button -->
           <template v-slot:next="{ props }">
-            <v-btn color="transparent" @click="props.onClick" style="color: green">
-              &gt;
-              <!-- This is the 'greater than' symbol ( > ) -->
-            </v-btn>
+            <v-btn color="transparent" @click="props.onClick" style="color: green"> &gt; </v-btn>
           </template>
 
-          <!-- Carousel Items -->
           <v-carousel-item v-for="(slide, i) in slides" :key="i">
             <div class="d-flex justify-center align-center" style="height: 100%">
               <Card
@@ -60,6 +52,13 @@
 <script lang="ts">
 import Card from '../../../components/Card.vue'
 
+import ts from '../../../assets/xp/ts.png'
+import next from '../../../assets/xp/next.png'
+import node from '../../../assets/xp/node.png'
+import vue from '../../../assets/xp/vue.png'
+import fire from '../../../assets/xp/firebase.png'
+import sql from '../../../assets/xp/mysql.png'
+
 export default {
   name: 'ShowcasePage',
   components: {
@@ -67,49 +66,78 @@ export default {
   },
   data() {
     return {
+      imageList: [
+        { src: next, alt: 'Next', link: 'https://nextjs.org/' },
+        { src: vue, alt: 'Vue', link: 'https://vuejs.org/' },
+        { src: node, alt: 'Node', link: 'https://nodejs.org/' },
+        { src: fire, alt: 'Firebase', link: 'https://firebase.google.com/' },
+        { src: sql, alt: 'sql', link: 'https://www.mysql.com/' },
+        { src: ts, alt: 'TypeScript', link: 'https://www.typescriptlang.org/' },
+      ],
       slides: [
         {
           title: 'Muscle Control Gym',
           description: 'This is Item number uno.',
           image: 'https://via.placeholder.com/100',
-          link: 'https://muscle-control-gym-admin.vercel.app/', // Add a link for the first slide
+          link: 'https://muscle-control-gym-admin.vercel.app/',
         },
         {
           title: 'Pothole/Puddle Image Classifier',
           description: 'This is Item number dos',
           image: 'https://via.placeholder.com/100',
-          link: 'https://puddlepotholepredict.vercel.app/', // Add a link for the second slide
+          link: 'https://puddlepotholepredict.vercel.app/',
         },
         {
           title: 'TIP Manila Document Hub',
           description:
             'This is a description inside the card component. You can use this as a showcase of your content.',
           image: 'https://via.placeholder.com/100',
-          link: 'https://muscle-control-gym-admin.vercel.app/', // Add a link for the third slide
+          link: 'https://muscle-control-gym-admin.vercel.app/',
         },
         {
           title: 'eScanMO',
           description:
             'This is a description inside the card component. You can use this as a showcase of your content.',
           image: 'https://via.placeholder.com/100',
-          link: 'https://os-prelim-exam.vercel.app', // Add a link for the fourth slide
+          link: 'https://os-prelim-exam.vercel.app',
         },
         {
           title: 'Operating System Scheduling Simulator',
           description:
             'This is a description inside the card component. You can use this as a showcase of your content.',
           image: 'https://via.placeholder.com/100',
-          link: 'https://os-prelim-exam.vercel.app', // Add a link for the fourth slide
+          link: 'https://os-prelim-exam.vercel.app',
         },
         {
           title: 'VetSharp',
-          description:
-            '3 day Petshop',
+          description: '3 day Petshop',
           image: 'https://via.placeholder.com/100',
-          link: 'https://os-prelim-exam.vercel.app', // Add a link for the fourth slide
+          link: 'https://os-prelim-exam.vercel.app',
         },
       ],
     }
+  },
+  methods: {
+    // This method returns a custom class based on the image alt text
+    getCustomClass(altText: string) {
+      switch (altText) {
+        case 'Next':
+          return 'next-img' // Custom class for Vue image
+        case 'Vue':
+          return 'vue-img' // Custom class for Vue image
+        case 'Node':
+          return 'node-img' // Custom class for Node image
+        case 'sql':
+          return 'sql-img' // Custom class for Node image
+
+        case 'Firebase':
+          return 'firebase-img' // Custom class for Firebase image
+        case 'TypeScript':
+          return 'ts-img' // Custom class for TypeScript image
+        default:
+          return ''
+      }
+    },
   },
 }
 </script>
@@ -134,8 +162,56 @@ p {
 }
 
 .card-section {
-  margin-top: 30px; /* Adds space above the card */
+  margin-top: 30px;
   display: flex;
-  justify-content: center; /* Centers the card */
+  justify-content: center;
+}
+
+.image-row {
+  margin-bottom: 30px;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.hover-effect {
+  /* Adding initial state for the images */
+  transform: scale(1); /* Ensure images start at normal size */
+}
+
+.hover-effect:hover {
+  /* On hover: scaling and adding shadow */
+  transform: scale(1.1); /* Smooth zoom-in effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+}
+
+/* Custom styles for specific images */
+.next-img {
+  border: 3px solid #ffffff; /* Node green border */
+}
+.vue-img {
+  border: 3px solid #42b983; /* Vue green border */
+}
+
+.node-img {
+  border: 3px solid #54a144; /* Node green border */
+}
+
+.sql-img {
+  border: 3px solid #00758f; /* sql blue border */
+}
+
+.firebase-img {
+  border: 3px solid #ffca28; /* Firebase yellow border */
+}
+
+.ts-img {
+  border: 3px solid #3178c6; /* TypeScript blue border */
 }
 </style>

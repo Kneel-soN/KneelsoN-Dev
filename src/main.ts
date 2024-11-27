@@ -19,11 +19,9 @@ const vuetify = createVuetify({
 
 const app = createApp(App)
 
-// Use Pinia, Router, and Vuetify plugins
 app.use(createPinia())
 app.use(router)
 app.use(MotionPlugin)
-app.use(vuetify) // Register Vuetify plugin
+app.use(vuetify)
 
-// Mount the app
 app.mount('#app')

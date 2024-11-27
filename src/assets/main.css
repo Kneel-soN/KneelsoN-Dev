@@ -1,13 +1,12 @@
 @import './base.css'; /* Import base styles if defined in base.css */
 
 body {
-  background-color: #002331e8; /* Grey color */
+  background-color: #002331e8;
 }
 
-/* Responsive design for screens larger than 1024px */
 @media (min-width: 1024px) {
   body {
-    display: flex; /* Use Flexbox layout for the body */
-    place-items: center; /* Center align all content vertically and horizontally */
+    display: flex;
+    place-items: center;
   }
 }
