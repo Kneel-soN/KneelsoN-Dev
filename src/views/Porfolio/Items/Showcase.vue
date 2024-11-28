@@ -41,7 +41,12 @@
 <script lang="ts">
 import XPIcons from '../../../components/XPIcons.vue'
 import Card from '../../../components/Card.vue'
-
+import esm from '../../../assets/showcase/esm.png'
+import dc from '../../../assets/showcase/dochub.png'
+import os from '../../../assets/showcase/os.png'
+import mcg from '../../../assets/showcase/mcg.png'
+import ppp from '../../../assets/showcase/ppp.png'
+import vets from '../../../assets/showcase/vets.png'
 export default {
   name: 'ShowcasePage',
   components: {
@@ -54,41 +59,39 @@ export default {
         {
           title: 'Muscle Control Gym',
           description: 'This is Item number uno.',
-          image: 'https://via.placeholder.com/100',
+          image: mcg,
           link: 'https://muscle-control-gym-admin.vercel.app/',
         },
         {
           title: 'Pothole/Puddle Image Classifier',
           description: 'This is Item number dos',
-          image: 'https://via.placeholder.com/100',
+          image: ppp,
           link: 'https://puddlepotholepredict.vercel.app/',
         },
         {
           title: 'TIP Manila Document Hub',
           description:
             'This is a description inside the card component. You can use this as a showcase of your content.',
-          image: 'https://via.placeholder.com/100',
-          link: 'https://muscle-control-gym-admin.vercel.app/',
+          image: dc,
         },
         {
           title: 'eScanMO',
           description:
             'This is a description inside the card component. You can use this as a showcase of your content.',
-          image: 'https://via.placeholder.com/100',
-          link: 'https://os-prelim-exam.vercel.app',
+          image: esm,
         },
         {
           title: 'Operating System Scheduling Simulator',
           description:
             'This is a description inside the card component. You can use this as a showcase of your content.',
-          image: 'https://via.placeholder.com/100',
+          image: os,
           link: 'https://os-prelim-exam.vercel.app',
         },
         {
           title: 'VetSharp',
           description: '3 day Petshop',
-          image: 'https://via.placeholder.com/100',
-          link: 'https://os-prelim-exam.vercel.app',
+          image: vets,
+          link: 'https://vetsharp.vercel.app/',
         },
       ],
     }

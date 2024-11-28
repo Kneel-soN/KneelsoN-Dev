@@ -44,8 +44,8 @@ export default {
 }
 
 .card-image {
-  width: 200px;
-  height: 200px;
+  width: 320px;
+  height: 210px;
   margin-top: 20px;
   margin-left: 50px;
   object-fit: cover;
