@@ -27,12 +27,12 @@
 </template>
 
 <script lang="ts">
-import ts from '@/assets/xp/ts.png'
-import next from '@/assets/xp/next.png'
+import ts from '@/assets/xp/ts-flip.png'
+import next from '@/assets/xp/next-flip.png'
 import node from '@/assets/xp/node.png'
 import vue from '@/assets/xp/vue.png'
 import fire from '@/assets/xp/firebase.png'
-import sql from '@/assets/xp/mysql.png'
+import sql from '@/assets/xp/mysql-flip.png'
 import mongo from '@/assets/xp/mongo.png'
 
 export default {
@@ -181,7 +181,7 @@ export default {
     transform: rotateY(0deg); /* Start at 0 degrees */
   }
   100% {
-    transform: rotateY(-360deg); /* Rotate full 360 degrees */
+    transform: rotateY(360deg); /* Rotate full 360 degrees */
   }
 }
 </style>
