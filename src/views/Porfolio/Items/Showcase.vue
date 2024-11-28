@@ -3,20 +3,9 @@
     <h1>My Works and Experience</h1>
     <p style="margin-bottom: 50px">Built by Using These Frameworks and Technologies</p>
 
-    <v-row class="image-row" justify="center">
-      <v-col v-for="(image, index) in imageList" :key="index" cols="1" class="pa-2">
-        <a :href="image.link" target="_blank" class="image-link">
-          <img
-            :src="image.src"
-            :alt="image.alt"
-            class="img-fluid hover-effect"
-            :class="getCustomClass(image.alt)"
-          />
-        </a>
-      </v-col>
-    </v-row>
+    <XPIcons />
 
-    <div v-motion-pop-visible class="card-section">
+    <div v-motion-pop-visible class="card-section" style="margin-top: 75px">
       <v-container>
         <v-carousel
           hide-delimiters
@@ -50,30 +39,17 @@
 </template>
 
 <script lang="ts">
+import XPIcons from '../../../components/XPIcons.vue'
 import Card from '../../../components/Card.vue'
-
-import ts from '../../../assets/xp/ts.png'
-import next from '../../../assets/xp/next.png'
-import node from '../../../assets/xp/node.png'
-import vue from '../../../assets/xp/vue.png'
-import fire from '../../../assets/xp/firebase.png'
-import sql from '../../../assets/xp/mysql.png'
 
 export default {
   name: 'ShowcasePage',
   components: {
     Card,
+    XPIcons,
   },
   data() {
     return {
-      imageList: [
-        { src: next, alt: 'Next', link: 'https://nextjs.org/' },
-        { src: vue, alt: 'Vue', link: 'https://vuejs.org/' },
-        { src: node, alt: 'Node', link: 'https://nodejs.org/' },
-        { src: fire, alt: 'Firebase', link: 'https://firebase.google.com/' },
-        { src: sql, alt: 'sql', link: 'https://www.mysql.com/' },
-        { src: ts, alt: 'TypeScript', link: 'https://www.typescriptlang.org/' },
-      ],
       slides: [
         {
           title: 'Muscle Control Gym',
@@ -117,28 +93,6 @@ export default {
       ],
     }
   },
-  methods: {
-    // This method returns a custom class based on the image alt text
-    getCustomClass(altText: string) {
-      switch (altText) {
-        case 'Next':
-          return 'next-img' // Custom class for Vue image
-        case 'Vue':
-          return 'vue-img' // Custom class for Vue image
-        case 'Node':
-          return 'node-img' // Custom class for Node image
-        case 'sql':
-          return 'sql-img' // Custom class for Node image
-
-        case 'Firebase':
-          return 'firebase-img' // Custom class for Firebase image
-        case 'TypeScript':
-          return 'ts-img' // Custom class for TypeScript image
-        default:
-          return ''
-      }
-    },
-  },
 }
 </script>
 
@@ -165,53 +119,5 @@ p {
   margin-top: 30px;
   display: flex;
   justify-content: center;
-}
-
-.image-row {
-  margin-bottom: 30px;
-}
-
-.img-fluid {
-  width: 100%;
-  height: auto;
-  border-radius: 25px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease; /* Smooth transition */
-}
-
-.hover-effect {
-  /* Adding initial state for the images */
-  transform: scale(1); /* Ensure images start at normal size */
-}
-
-.hover-effect:hover {
-  /* On hover: scaling and adding shadow */
-  transform: scale(1.1); /* Smooth zoom-in effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
-}
-
-/* Custom styles for specific images */
-.next-img {
-  border: 3px solid #ffffff; /* Node green border */
-}
-.vue-img {
-  border: 3px solid #42b983; /* Vue green border */
-}
-
-.node-img {
-  border: 3px solid #54a144; /* Node green border */
-}
-
-.sql-img {
-  border: 3px solid #00758f; /* sql blue border */
-}
-
-.firebase-img {
-  border: 3px solid #ffca28; /* Firebase yellow border */
-}
-
-.ts-img {
-  border: 3px solid #3178c6; /* TypeScript blue border */
 }
 </style>
