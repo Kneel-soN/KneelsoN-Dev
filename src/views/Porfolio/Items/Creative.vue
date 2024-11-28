@@ -8,14 +8,15 @@
       ligula. Sed volutpat justo a felis elementum, vel cursus neque molestie. Integer sagittis,
       sapien et blandit tincidunt, libero ex facilisis nisl, a tincidunt elit erat ut ante.
     </p>
-    
 
     <v-row>
-    
       <v-col
         v-for="(card, index) in Cards"
         :key="index"
-        cols="12" sm="6" md="4" lg="4" 
+        cols="12"   
+        sm="6"         
+        md="4"         
+        lg="3"   
       >
         <!-- Pass data to each Card2 component -->
         <Card2
@@ -34,6 +35,7 @@ import Card2 from '@/components/Card2.vue'
 import journal from '@/assets/card/journal.png'
 import destiny from '@/assets/card/destiny.png'
 import flower from '@/assets/card/flower.png'
+
 export default {
   name: "Creative",
   components: {
@@ -68,19 +70,19 @@ export default {
 
 <style scoped>
 .creative-page {
-  text-align: center; /* Center the text */
-  color: #fdfdfd; /* Dark text for contrast */
+  text-align: center;
+  color: #fdfdfd;
   margin-top: 40px;
 }
 
 h1 {
-  font-size: 2.5rem; /* Larger font size for the heading */
-  margin-bottom: 20px; /* Space below the heading */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 p {
-  font-size: 1.2rem; /* Adjust paragraph font size */
-  line-height: 1.6; /* Better line spacing for readability */
-  margin-bottom: 15px; /* Space between paragraphs */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 </style>
