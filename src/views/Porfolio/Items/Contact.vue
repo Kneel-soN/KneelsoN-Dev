@@ -1,6 +1,6 @@
 <template>
   <div class="contact-page">
-    <h1>Contact Us</h1>
+    <h1>Contact Me</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -16,22 +16,26 @@
     </p>
 
     <h3>Email:</h3>
-    <p>example@example.com</p>
+    <p>mnpdinoso01@tip.edu.ph</p>
 
-    <h3>Phone:</h3>
-    <p>(123) 456-7890</p>
 
-    <h3>Address:</h3>
-    <p>1234 Lorem St.<br />Ipsum City, CA 98765</p>
+    <div class="image-and-social">
+      <div class="social-icons">
+        <a href="https://github.com/Kneel-soN" target="_blank">
+          <img src="../../../assets/github-icon.png" alt="GitHub" />
+        </a>
 
-    <h2>Follow Us</h2>
-    <p>Follow us on social media for the latest updates:</p>
-    <ul>
-      <li><a href="#">Facebook</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">LinkedIn</a></li>
-    </ul>
+        <a href="https://www.linkedin.com/in/neilsondinoso/" target="_blank">
+          <img src="../../../assets/linkedin-logo.png" alt="LinkedIn" />
+        </a>
+        <a href="https://www.facebook.com/neeeil24/" target="_blank">
+          <img src="../../../assets/facebook.png" alt="Facebook" />
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61559666672259" target="_blank">
+          <img src="../../../assets/Devxotle-w.png" style="width: 75px;"lt="Devxotle" />
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -46,6 +50,33 @@
   color: #ffffff;
   height: 100vh; /* Full viewport height to center vertically */
   text-align: center; /* Center text horizontally */
+}
+
+.image-and-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+.social-icons img:hover {
+  transform: scale(1.1); /* Make the icon grow on hover */
+  filter: brightness(1.2); /* Slightly brighten the icon on hover */
+
+}
+
+
+.social-icons img {
+  width: 50px;  /* Set width to 50px */
+  height: 50px; /* Set height to 50px */
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; 
 }
 
 h1 {

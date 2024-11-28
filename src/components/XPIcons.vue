@@ -181,7 +181,7 @@ export default {
     transform: rotateY(0deg); /* Start at 0 degrees */
   }
   100% {
-    transform: rotateY(-360deg); /* Rotate full 360 degrees */
+    transform: rotateY(360deg); /* Rotate full 360 degrees */
   }
 }
 </style>

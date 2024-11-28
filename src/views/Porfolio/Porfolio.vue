@@ -56,6 +56,9 @@ export default {
           if (hash === '#showcase') {
             offset = 90 // Special offset for showcase section
           }
+          if (hash === '#contact') {
+            offset = 90// Special offset for showcase section
+          }
           const speed = 500 // Scroll speed in milliseconds
 
           // Calculate target position
@@ -100,6 +103,10 @@ section {
 }
 #creative {
   margin-top: 100px;
+}
+
+#contact {
+  margin-top: 50px;
 }
 
 html {

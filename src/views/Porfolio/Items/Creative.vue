@@ -8,26 +8,67 @@
       ligula. Sed volutpat justo a felis elementum, vel cursus neque molestie. Integer sagittis,
       sapien et blandit tincidunt, libero ex facilisis nisl, a tincidunt elit erat ut ante.
     </p>
-    <p>
-      Nullam ut nunc tincidunt, consectetur nisl nec, aliquet magna. Phasellus tincidunt, libero ac
-      gravida cursus, metus metus finibus velit, non faucibus metus magna a justo. Quisque imperdiet
-      risus id bibendum faucibus. Integer sit amet orci non nisi dignissim faucibus. Aliquam erat
-      volutpat. Donec hendrerit risus quis dolor finibus, id malesuada nulla vulputate. Vivamus ac
-      orci lectus.
-    </p>
-    <p>
-      Suspendisse potenti. Donec volutpat malesuada ex, vel blandit purus varius ac. Cras vitae
-      turpis non eros lacinia volutpat non vel turpis. Sed vitae nisi vitae ante blandit convallis.
-      Nunc vitae ligula libero. Mauris euismod neque eu ante dignissim, ac varius massa pharetra.
-      Fusce nec orci in est commodo laoreet.
-    </p>
+    
+
+    <v-row>
+    
+      <v-col
+        v-for="(card, index) in Cards"
+        :key="index"
+        cols="12" sm="6" md="4" lg="4" 
+      >
+        <!-- Pass data to each Card2 component -->
+        <Card2
+          :title="card.title"
+          :description="card.description"
+          :image="card.image"
+          :link="card.link"
+        />
+      </v-col>
+    </v-row>
   </div>
 </template>
+
+<script lang="ts">
+import Card2 from '@/components/Card2.vue'
+import journal from '@/assets/card/journal.png'
+import destiny from '@/assets/card/destiny.png'
+import flower from '@/assets/card/flower.png'
+export default {
+  name: "Creative",
+  components: {
+    Card2,
+  },
+  data() {
+    return {
+      Cards: [
+        {
+          title: 'Destiny 2 Gameplay Edit',
+          description: 'This is my Destiny Gameplay.',
+          image: destiny,
+          link: 'https://www.youtube.com/watch?v=-gh0Gwr-Tpo',
+        },
+        {
+          title: 'P.E. Journal Project',
+          description: 'Physical Education Journal with Cyberpunk Themes and assets.',
+          image: journal,
+          link: 'https://drive.google.com/file/d/1ie6r6Uz64DQ27cT-PM9-XLVjOgYbQHI2/view?usp=sharing',
+        },
+        {
+          title: 'For My Habibi',
+          description: 'Made using NextJS and CSS.',
+          image: flower,
+          link: 'https://formy-habibi.vercel.app/',
+        },
+      ],
+    }
+  }
+}
+</script>
 
 <style scoped>
 .creative-page {
   text-align: center; /* Center the text */
-
   color: #fdfdfd; /* Dark text for contrast */
   margin-top: 40px;
 }

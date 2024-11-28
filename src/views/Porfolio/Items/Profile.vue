@@ -42,7 +42,7 @@
         </p>
       </div>
 
-      <!-- Flex Container for Image and Social Icons (Vertically stacked) -->
+
       <div class="image-and-social">
         <div class="image-content">
           <img src="../../../assets/image2.jpg" alt="Profile Image" />

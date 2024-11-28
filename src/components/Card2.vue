@@ -1,0 +1,83 @@
+<template>
+    <div class="card">
+      <img :src="image" alt="Card Image" class="card-image" />
+      <div class="card-content">
+        <h3 class="card-title">
+          <a :href="link" target="_blank">{{ title }}</a>
+        </h3>
+        <p class="card-description">{{ description }}</p>
+      </div>
+    </div>
+  </template>
+  
+  <script lang="ts">
+  export default {
+    name: 'Card2',
+    props: {
+      title: {
+        type: String,
+        required: true,
+      },
+      description: {
+        type: String,
+        required: true,
+      },
+      image: {
+        type: String,
+        required: true,
+      },
+      link: {
+        type: String,
+        required: true,
+      },
+    },
+  }
+  </script>
+  
+  <style scoped>
+.card {
+  display: flex;
+  overflow: hidden;
+  width: 600px;
+  margin-top: 20px;
+  padding : 10px;
+  border: 2px solid #ccc; /* Add a light gray border */
+  border-radius: 10px; /* Optional: rounded corners for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow for depth */
+}
+
+.card-image {
+  width: 150px;
+  height: 150px;
+
+  margin-left: 50px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-content {
+  padding: 30px;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #e7e7e7;
+}
+
+.card-title a {
+  color: #007bff; /* Set a color for the link */
+  text-decoration: none; /* Remove underline */
+}
+
+.card-title a:hover {
+  text-decoration: underline; /* Optional: underline on hover */
+}
+
+  </style>
+  
