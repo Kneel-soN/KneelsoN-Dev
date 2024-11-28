@@ -1,7 +1,7 @@
 <template>
   <div v-motion-fade-visible class="showcase-page">
-    <h1>My Works and Experience</h1>
-    <p style="margin-bottom: 50px">Built by Using These Frameworks and Technologies</p>
+    <h1>Projects and Experience</h1>
+    <p style="margin-bottom: 50px">Built by Using These Frameworks, Languages, and Technologies</p>
 
     <XPIcons />
 
@@ -99,20 +99,35 @@ export default {
 <style scoped>
 .showcase-page {
   text-align: center;
-  padding: 100px;
+  font-family: 'Raleway', sans-serif;
+  padding: 50px;
   color: #fdfdfd;
-  background-color: rgba(0, 0, 0, 1); /* Black background with 75% opacity */
+  background-image: linear-gradient(
+    to top,
+    #173643,
+    /* Start with dark teal at the bottom */ #000000 100%,
+    /* Transition to black at the center */ #173643 100% /* End with dark teal at the top */
+  );
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  text-align: center;
+  padding: 20px;
+
+  color: #000000; /* Inside text color */
+  font-size: 48px; /* Example font size */
+  text-shadow:
+    1px 1px 0 #ffffff,
+    /* Bottom-right white shadow */ -1px -1px 0 #ffffff,
+    /* Top-left white shadow */ 1px -1px 0 #ffffff,
+    /* Bottom-left white shadow */ -1px 1px 0 rgb(255, 255, 255); /* Top-right white shadow */
 }
 
 p {
   font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 15px;
+
+  opacity: 90%;
 }
 
 .card-section {

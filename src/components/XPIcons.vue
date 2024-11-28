@@ -83,8 +83,6 @@ export default {
       const x = this.radius * Math.cos((angle * Math.PI) / 180) // X coordinate on the circle
       const z = this.radius * Math.sin((angle * Math.PI) / 180) // Z coordinate (depth)
 
-      const scale = 1 - (Math.abs(z) / this.radius) * 0.5
-
       return {
         transform: `translateX(${x}px) translateZ(${z}px)`,
         transformOrigin: 'center',
