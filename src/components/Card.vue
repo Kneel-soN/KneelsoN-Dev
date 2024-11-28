@@ -64,7 +64,7 @@ export default {
 
 .card-description {
   font-size: 14px;
-  color: #666;
+  color: #eeeeee;
 }
 
 .card-title a {
