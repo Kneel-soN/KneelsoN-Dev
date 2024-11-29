@@ -128,14 +128,14 @@ const handleSubmit = () => {
   width: 100%; /* Full width */
   max-width: 400px; /* Limit width to 400px */
   padding: 2rem;
-  background-color: #fed849;
+  background-color: #00947bb9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Play';
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 1.5rem;
 }
 
 .form-group {
