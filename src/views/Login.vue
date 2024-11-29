@@ -153,6 +153,8 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
+  color: white; /* White text color */
+  background-color: #33333386; /* Optional dark background */
 }
 
 input.error {
@@ -188,6 +190,6 @@ p {
 }
 
 .text_label {
-  color: rgb(212, 212, 212);
+  color: rgb(255, 255, 255);
 }
 </style>
