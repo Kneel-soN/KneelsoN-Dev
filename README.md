@@ -1,6 +1,6 @@
 # KneelsoN-Dev
 
-Welcome to the **KneelsoN-Dev** project! This template is designed to help you get started with Vue 3 and Vite for modern web development.
+Welcome  **KneelsoN-Dev** Portfolio!
 
 ## Project Setup
 
@@ -40,16 +40,6 @@ With this setup, you'll get features like:
     IntelliSense for Vue components and TypeScript
     Type checking for .vue files
 
-Type Support for .vue Imports in TypeScript
-
-By default, TypeScript does not recognize types from .vue files. To handle this, we use vue-tsc instead of the default tsc for type checking.
-
-    In your editor, install Volar for full TypeScript support in .vue files.
-
-    In the terminal, you can run the following command to type-check your .vue files:
-
-    vue-tsc --noEmit
-
 Development
 Compile and Hot-Reload for Development
 
@@ -64,47 +54,6 @@ To build the app for production, compile the code, and minify it for optimal per
 
 npm run build
 
-Once the build is complete, the production-ready files will be in the dist/ directory.
-Preview the Production Build
 
-To preview your production build locally (useful for testing), you can run:
-
-npm run preview
-
-Run Unit Tests with Vitest
-
-Vitest is used for unit testing in this project. To run the tests, use the following command:
-
-npm run test
-
-To run a specific test suite:
-
-npm run test -- <test-file-path>
-
-Lint with ESLint
-
-To ensure consistent code quality, we use ESLint. You can lint your project by running:
-
-npm run lint
-
-If there are any issues, ESLint will automatically fix them if possible, or it will provide detailed information about the errors.
-Format with Prettier
-
-To format your code automatically with Prettier, you can run:
-
-npm run format
-
-Customize Configuration
-
-You can customize your development setup by editing the configuration files in the root of the project:
-
-    vite.config.ts: Vite configuration file for bundling, plugins, and development server settings.
-    tsconfig.json: TypeScript configuration file.
-    .eslintrc.js: ESLint configuration file for linting rules.
-
-For more information on configuring Vite, check out the Vite Configuration Reference.
-Notes
-
-Feel free to modify this template according to your project's needs. The project is set up with a basic Vue 3 structure, but you can add more features, like Vuex or Vue Router, as needed.
 
 For any questions or suggestions, feel free to open an issue or contact me!
