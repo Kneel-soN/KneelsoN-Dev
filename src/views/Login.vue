@@ -162,7 +162,7 @@ input.error {
 button {
   width: 100%;
   padding: 1rem;
-  background-color: #3498db;
+  background-color: #003152b2;
   color: white;
   border: none;
   border-radius: 5px;
@@ -188,6 +188,6 @@ p {
 }
 
 .text_label {
-  color: black;
+  color: rgb(212, 212, 212);
 }
 </style>
