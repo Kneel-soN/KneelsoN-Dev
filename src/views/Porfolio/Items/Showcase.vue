@@ -58,38 +58,35 @@ export default {
       slides: [
         {
           title: 'Muscle Control Gym',
-          description: 'This is Item number uno.',
+          description: 'Gym Subscription App with QR Generation for IN and OUT.',
           image: mcg,
           link: 'https://muscle-control-gym-admin.vercel.app/',
         },
         {
           title: 'Pothole/Puddle Image Classifier',
-          description: 'This is Item number dos',
+          description: 'Image Classifier for Identifying Puddles or Potholes',
           image: ppp,
           link: 'https://puddlepotholepredict.vercel.app/',
         },
         {
           title: 'TIP Manila Document Hub',
-          description:
-            'This is a description inside the card component. You can use this as a showcase of your content.',
+          description: 'Technological Institute of the Philippines - Manila Document Hub',
           image: dc,
         },
         {
           title: 'eScanMO',
-          description:
-            'This is a description inside the card component. You can use this as a showcase of your content.',
+          description: 'Document to Text to Excel Entry Mobile App and Website',
           image: esm,
         },
         {
           title: 'Operating System Scheduling Simulator',
-          description:
-            'This is a description inside the card component. You can use this as a showcase of your content.',
+          description: 'Website for Simulating Operating Systems Algorithms',
           image: os,
           link: 'https://os-prelim-exam.vercel.app',
         },
         {
           title: 'VetSharp',
-          description: '3 day Petshop',
+          description: 'Petshop website with e-Commerce Features and Pet Appointment',
           image: vets,
           link: 'https://vetsharp.vercel.app/',
         },
