@@ -3,7 +3,7 @@
     <h1>Contact Me</h1>
 
     <p>
-      If you have any questions or would like to reach out, feel free to contact me by sending a message below.
+      If you have any questions, comissions or would like to reach out, feel free to contact me by sending a message below.
     </p>
 
     <!-- Contact Form with a Container for Fields -->
