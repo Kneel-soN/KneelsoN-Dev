@@ -1,15 +1,17 @@
 <template>
   <div v-motion-fade-visible class="creative-page">
-    <h1>Creative Page</h1>
+    <h1>My Personal Creations</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis, metus vitae
-      dapibus elementum, sapien nunc tristique magna, non dignissim nisi justo in eros. Morbi
-      euismod, nisi nec facilisis sodales, lorem lorem tristique libero, sed lacinia mi velit vel
-      ligula. Sed volutpat justo a felis elementum, vel cursus neque molestie. Integer sagittis,
-      sapien et blandit tincidunt, libero ex facilisis nisl, a tincidunt elit erat ut ante.
-    </p>
+  These are the product of my imagination, creativity, and resourcefulness (and maybe a byproduct of boredom). Each piece reflects the thoughts, ideas, and inspirations that have wandered through my mind, sometimes sparked by curiosity, other times by the need to break free from routine. These creations are more than just mere concepts; they are the tangible outcomes of moments spent exploring the unknown and pushing the boundaries of what I can do. Whether it's a sudden burst of creativity or a slow burn of contemplation, these works have been shaped by my desire to express, learn, and grow.
+</p>
 
-    <v-row>
+
+    <v-row
+    class="centered-row"
+      justify="center"
+      align="center"  
+      wrap
+    >
       <v-col
         v-for="(card, index) in Cards"
         :key="index"
@@ -73,6 +75,7 @@ export default {
   text-align: center;
   color: #fdfdfd;
   margin-top: 40px;
+  font-family: 'Play', sans-serif;
 }
 
 h1 {

@@ -94,6 +94,7 @@ export default {
   display: flex;
   flex-direction: column; /* Stack sections vertically */
   align-items: center; /* Center sections horizontally */
+  width: 100%;
 }
 
 section {

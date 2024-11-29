@@ -16,6 +16,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@vueuse/motion": "^2.2.6",
     "glitched-writer": "^2.0.29",
     "pinia": "^2.2.6",
