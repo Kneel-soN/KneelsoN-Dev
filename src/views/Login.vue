@@ -1,13 +1,6 @@
 <template>
   <!-- Outer container that will center the content on the page -->
-  <div style="align-self: center align-items:center;" class="outer-container">
-    <div class="load1"></div>
-    <div class="load2"></div>
-    <div class="load3"></div>
-    <div class="load4"></div>
-    <div class="load5"></div>
-    <div class="load6"></div>
-    <div class="load7"></div>
+  <div class="outer-container">
     <div class="login-container">
       <h2 class="text_label">Kneel-soN</h2>
       <form @submit.prevent="handleSubmit">
@@ -44,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 // State variables
@@ -55,8 +48,66 @@ const passwordError = ref('')
 const loginError = ref('')
 const isSubmitting = ref(false)
 
+// Import images explicitly to preload
+import cyber4 from '@/assets/cyber4.gif'
+import image2 from '@/assets/image2.jpg'
+import devxotle from '@/assets/Devxotle-w.png'
+import facebook from '@/assets/facebook.png'
+import github from '@/assets/github-icon.png'
+import linkedin from '@/assets/linkedin-logo.png'
+import downloads from '@/assets/downloads.png'
+import vets from '@/assets/showcase/vets.png'
+import dochub from '@/assets/showcase/dochub.png'
+import esm from '@/assets/showcase/esm.png'
+import mcg from '@/assets/showcase/mcg.png'
+import os from '@/assets/showcase/os.png'
+import ppp from '@/assets/showcase/ppp.png'
+
+// List of imported images
+const imagesToPreload = [
+  cyber4,
+  image2,
+  devxotle,
+  facebook,
+  github,
+  linkedin,
+  downloads,
+  vets,
+  dochub,
+  esm,
+  mcg,
+  os,
+  ppp,
+]
+
+// Preload images asynchronously
+const preloadImages = async (images: string[]) => {
+  const loadImage = (src: string) => {
+    return new Promise<void>((resolve, reject) => {
+      const img = new Image()
+      img.src = src
+      img.onload = () => resolve()
+      img.onerror = (err) => reject(`Failed to load image: ${src}`)
+    })
+  }
+
+  const promises = images.map((src) => loadImage(src))
+
+  try {
+    await Promise.all(promises) // Wait for all images to preload
+    console.log('Images preloaded successfully')
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 // Access the router instance
 const router = useRouter()
+
+// Preload images when the component is mounted
+onMounted(() => {
+  preloadImages(imagesToPreload)
+})
 
 // Mock submit handler (You can replace this with actual authentication logic)
 const handleSubmit = () => {
@@ -98,32 +149,9 @@ const handleSubmit = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.load1 {
-  background-image: url('@/assets/cyber4.gif'); /* Replace with your background image */
+  height: 100vh; /* Ensures the container takes the full height */
 }
 
-.load2 {
-  background-image: url('@/assets/image2.jpg'); /* Replace with your background image */
-}
-.load3 {
-  background-image: url('@/assets/Devxotle-w.png'); /* Replace with your background image */
-}
-
-.load4 {
-  background-image: url('@/assets/facebook.png'); /* Replace with your background image */
-}
-
-.load5 {
-  background-image: url('@/assets/github-icon.png'); /* Replace with your background image */
-}
-
-.load6 {
-  background-image: url('@/assets/linkedin-logo.png'); /* Replace with your background image */
-}
-.load7 {
-  background-image: url('@/assets/downloads.png'); /* Replace with your background image */
-}
 .login-container {
   width: 100%; /* Full width */
   max-width: 400px; /* Limit width to 400px */

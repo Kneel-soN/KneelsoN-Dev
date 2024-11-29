@@ -10,7 +10,7 @@ import { MotionPlugin } from '@vueuse/motion'
 import App from './App.vue'
 import router from './router'
 import { createVuetify } from 'vuetify'
-
+import VueLazyload from 'vue-lazyload'
 // Create Vuetify instance
 const vuetify = createVuetify({
   components, // Add Vuetify components
@@ -18,7 +18,7 @@ const vuetify = createVuetify({
 })
 
 const app = createApp(App)
-
+app.use(VueLazyload)
 app.use(createPinia())
 app.use(router)
 app.use(MotionPlugin)
