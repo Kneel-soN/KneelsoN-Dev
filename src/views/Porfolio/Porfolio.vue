@@ -20,14 +20,16 @@
 </template>
 
 <script lang="ts">
-import Header from '@/components/Header.vue'
-import HeaderContainer from '../HeaderContainer.vue'
-import Showcase from './Items/Showcase.vue'
-import Profile from './Items/Profile.vue'
-import Creative from './Items/Creative.vue'
-import Contact from './Items/Contact.vue'
+import { defineComponent, onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router'; // Vue Router hook to access the route
+import Header from '@/components/Header.vue';
+import HeaderContainer from '../HeaderContainer.vue';
+import Showcase from './Items/Showcase.vue';
+import Profile from './Items/Profile.vue';
+import Creative from './Items/Creative.vue';
+import Contact from './Items/Contact.vue';
 
-export default {
+export default defineComponent({
   name: 'Portfolio',
   components: {
     HeaderContainer,
@@ -37,56 +39,71 @@ export default {
     Creative,
     Contact,
   },
-  mounted() {
-    this.scrollToHash()
-  },
-  watch: {
-    '$route.hash': function () {
-      this.scrollToHash()
-    },
-  },
-  methods: {
-    scrollToHash() {
-      const hash = this.$route.hash
+  setup() {
+    // Access current route
+    const route = useRoute();
+
+    // Function to handle the smooth scroll to the hash element
+    const scrollToHash = () => {
+      const hash = route.hash;
       if (hash) {
-        const element = document.querySelector(hash)
+        const element = document.querySelector(hash);
         if (element) {
-          const headerHeight = document.querySelector('.header')?.clientHeight || 0
-          let offset = 40
+          const headerHeight = document.querySelector('.header')?.clientHeight || 0;
+          let offset = 40;
           if (hash === '#showcase') {
-            offset = 90 // Special offset for showcase section
+            offset = 90; // Special offset for showcase section
           }
           if (hash === '#contact') {
-            offset = 90// Special offset for showcase section
+            offset = 90; // Special offset for contact section
           }
-          const speed = 500 // Scroll speed in milliseconds
+          const speed = 500; // Scroll speed in milliseconds
 
           // Calculate target position
           const targetPosition =
-            element.getBoundingClientRect().top + window.pageYOffset - headerHeight - offset
-          this.smoothScrollTo(targetPosition, speed)
+            element.getBoundingClientRect().top + window.pageYOffset - headerHeight - offset;
+          smoothScrollTo(targetPosition, speed);
         }
       }
-    },
-    smoothScrollTo(target: number, duration: number) {
-      const start = window.pageYOffset
-      const distance = target - start
-      const startTime = performance.now()
+    };
+
+    // Function to perform smooth scrolling animation
+    const smoothScrollTo = (target: number, duration: number) => {
+      const start = window.pageYOffset;
+      const distance = target - start;
+      const startTime = performance.now();
 
       const scroll = (currentTime: number) => {
-        const timeElapsed = currentTime - startTime
-        const progress = Math.min(timeElapsed / duration, 1)
-        window.scrollTo(0, start + distance * progress)
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        window.scrollTo(0, start + distance * progress);
 
         if (timeElapsed < duration) {
-          requestAnimationFrame(scroll) // Continue animating until the duration is completed
+          requestAnimationFrame(scroll); // Continue animating until the duration is completed
         }
-      }
+      };
 
-      requestAnimationFrame(scroll) // Start the smooth scroll animation
-    },
+      requestAnimationFrame(scroll); // Start the smooth scroll animation
+    };
+
+    // Call scrollToHash when the component is mounted
+    onMounted(() => {
+      scrollToHash();
+    });
+
+    // Watch for route hash changes to trigger scrolling
+    watch(
+      () => route.hash,
+      () => {
+        scrollToHash();
+      }
+    );
+
+    return {
+      scrollToHash,
+    };
   },
-}
+});
 </script>
 
 <style scoped>
