@@ -129,7 +129,7 @@ const handleSubmit = () => {
   }
 
   isSubmitting.value = true
-
+  /** 
   setTimeout(() => {
     if (username.value === 'neilson' && password.value === 'develop') {
       // Successful login, navigate to dashboard
@@ -140,6 +140,12 @@ const handleSubmit = () => {
       loginError.value = 'Invalid username or password'
     }
     isSubmitting.value = false
+  }, 1000)
+}
+*/
+
+  setTimeout(() => {
+    router.push('/portfolio')
   }, 1000)
 }
 </script>
