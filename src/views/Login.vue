@@ -1,39 +1,6 @@
 <template>
   <!-- Outer container that will center the content on the page -->
-  <div class="outer-container">
-    <div class="login-container">
-      <h2 class="text_label">Kneel-soN</h2>
-      <form @submit.prevent="handleSubmit">
-        <div class="form-group">
-          <label for="username" class="text_label">Username</label>
-          <input
-            type="text"
-            id="username"
-            v-model="username"
-            :class="{ error: usernameError }"
-            placeholder="Enter your username"
-          />
-          <span v-if="usernameError" class="error-message">{{ usernameError }}</span>
-        </div>
-
-        <div class="form-group">
-          <label for="password" class="text_label">Password</label>
-          <input
-            type="password"
-            id="password"
-            v-model="password"
-            :class="{ error: passwordError }"
-            placeholder="Enter your password"
-          />
-          <span v-if="passwordError" class="error-message">{{ passwordError }}</span>
-        </div>
-
-        <button type="submit" :disabled="isSubmitting">Login</button>
-
-        <p v-if="loginError" class="error-message">{{ loginError }}</p>
-      </form>
-    </div>
-  </div>
+  <div class="outer-container"></div>
 </template>
 
 <script setup lang="ts">
@@ -96,6 +63,7 @@ const preloadImages = async (images: string[]) => {
   try {
     await Promise.all(promises) // Wait for all images to preload
     console.log('Images preloaded successfully')
+    router.push('/portfolio')
   } catch (error) {
     console.error(error)
   }
