@@ -21,27 +21,36 @@
         </p>
         <p class="raleway">
           I specialize in developing dynamic and responsive web applications using frameworks like
-          <a href="https://nextjs.org" target="_blank"><strong>Next.js</strong></a> for server-side rendering and static site generation, and
-          <a href="https://vuejs.org" target="_blank"><strong>Vue.js</strong></a> for building interactive front-end applications. For mobile
-          applications, I have experience building native apps using <a href="https://reactnative.dev" target="_blank"><strong>React Native</strong></a>,
-          which allows me to write cross-platform mobile applications, and
-          <a href="https://developer.android.com/studio" target="_blank"><strong>Android Studio</strong></a> for native Android development. I am also well-versed in
-          backend development using technologies like <a href="https://nodejs.org" target="_blank"><strong>Node.js</strong></a> and
-          <a href="https://expressjs.com" target="_blank"><strong>Express</strong></a> to build RESTful APIs. Additionally, I am comfortable working
-          with databases, both SQL and NoSQL, including <a href="https://www.mysql.com/" target="_blank"><strong>MySQL</strong></a>,
-          <a href="https://www.mongodb.com" target="_blank"><strong>MongoDB</strong></a>, and <a href="https://firebase.google.com" target="_blank"><strong>Firebase</strong></a>, which enables me to manage data
-          efficiently and scale applications.
+          <a href="https://nextjs.org" target="_blank"><strong>Next.js</strong></a> for server-side
+          rendering and static site generation, and
+          <a href="https://vuejs.org" target="_blank"><strong>Vue.js</strong></a> for building
+          interactive front-end applications. For mobile applications, I have experience building
+          native apps using
+          <a href="https://reactnative.dev" target="_blank"><strong>React Native</strong></a
+          >, which allows me to write cross-platform mobile applications, and
+          <a href="https://developer.android.com/studio" target="_blank"
+            ><strong>Android Studio</strong></a
+          >
+          for native Android development. I am also well-versed in backend development using
+          technologies like
+          <a href="https://nodejs.org" target="_blank"><strong>Node.js</strong></a> and
+          <a href="https://expressjs.com" target="_blank"><strong>Express</strong></a> to build
+          RESTful APIs. Additionally, I am comfortable working with databases, both SQL and NoSQL,
+          including <a href="https://www.mysql.com/" target="_blank"><strong>MySQL</strong></a
+          >, <a href="https://www.mongodb.com" target="_blank"><strong>MongoDB</strong></a
+          >, and <a href="https://firebase.google.com" target="_blank"><strong>Firebase</strong></a
+          >, which enables me to manage data efficiently and scale applications.
         </p>
         <p class="raleway">
           Currently, I am enrolled at the
-          <a href="https://www.tip.edu.ph/" target="_blank"><strong>Technological Institute of the Philippines - Manila</strong></a>, where I am pursuing a degree
-          in Computer Engineering. In addition to my studies, I am working as a Backend Developer at
-          <strong>LRY Marketing</strong>, where I am responsible for developing and maintaining
-          backend systems, optimizing database performance, and ensuring the security and
-          scalability of our applications. 
+          <a href="https://www.tip.edu.ph/" target="_blank"
+            ><strong>Technological Institute of the Philippines - Manila</strong></a
+          >, where I am pursuing a degree in Computer Engineering. In addition to my studies, I have
+          experience as a Backend Developer at <strong>LRY Marketing</strong>, where I am
+          responsible for developing and maintaining backend systems, optimizing database
+          performance, and ensuring the security and scalability of our applications.
         </p>
       </div>
-
 
       <div class="image-and-social">
         <div class="image-content">
@@ -64,10 +73,9 @@
           </a>
         </div>
         <button class="styled-button" @click="downloadResume">
-  <img src="../../../assets/downloads.png" alt="Download Icon" class="button-icon" />
-  Download Resume
-</button>
-
+          <img src="../../../assets/downloads.png" alt="Download Icon" class="button-icon" />
+          Download Resume
+        </button>
       </div>
     </div>
   </div>
@@ -110,17 +118,17 @@ export default {
     applyGlitchEffect() {
       const glitchTextElement = this.$refs.glitchText as HTMLElement
       const writer = create(glitchTextElement)
-      let phrases = [ 'Neilson', 'KneelsoN','nɪ́jlsən', 'ニールソン']
+      let phrases = ['Neilson', 'KneelsoN', 'nɪ́jlsən', 'ニールソン']
 
       writer.queueWrite(phrases, 2000, true)
     },
     // Function to download resume
     downloadResume() {
       // Create a temporary anchor element
-      const link = document.createElement('a');
-      link.href = '/NeilsonDiñosoResume.pdf'; // Path to the PDF in the public folder
-      link.download = 'NeilsonDiñosoResume.pdf'; // Set the download file name
-      link.click(); // Trigger the download
+      const link = document.createElement('a')
+      link.href = '/NeilsonDiñosoResume.pdf' // Path to the PDF in the public folder
+      link.download = 'NeilsonDiñosoResume.pdf' // Set the download file name
+      link.click() // Trigger the download
     },
   },
   mounted() {
@@ -150,8 +158,9 @@ export default {
   margin: 10px 0; /* Margin for spacing */
   cursor: pointer; /* Pointer cursor on hover */
   border-radius: 5px; /* Rounded corners */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and scale */
-
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease; /* Smooth transition for background and scale */
 }
 
 /* Button hover effect */
@@ -169,7 +178,7 @@ export default {
   width: 20px; /* Adjust the image size */
   height: 20px;
   margin-right: 8px; /* Space between image and text */
-  transform: translateY(0.20rem); 
+  transform: translateY(0.2rem);
 }
 
 .play-regular {
@@ -286,8 +295,8 @@ export default {
 }
 
 a {
-  text-decoration: none;  /* No underline on links */
-  color: white;  /* White color for the link */
+  text-decoration: none; /* No underline on links */
+  color: white; /* White color for the link */
 }
 
 a:hover {
