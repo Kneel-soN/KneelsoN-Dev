@@ -58,7 +58,7 @@
           This OJT was my proving ground. During my 1st term I had shadowed, but going into my
           2nd term I chose to go all-in — not because it was required, but because I had free
           time and I wanted to see what I was capable of. The result was TIP DocHub: a system
-          I built largely on my own, end-to-end, across full-stack, cloud, and security domains.
+         We built, end-to-end, across full-stack, cloud, and security domains.
           I grew from someone who could build features into someone who can own a system.
         </p>
       </div>
