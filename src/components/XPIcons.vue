@@ -1,5 +1,5 @@
 <template>
-  <div style="overflow: hidden; width: 100%; height: 225px">
+  <div class="xp-wrapper">
     <v-row class="image-row" style="padding-top: 50px">
       <v-col cols="12" class="carousel">
         <div class="carousel" :style="{ '--carousel-state': isHovering ? 'paused' : 'running' }">
@@ -30,10 +30,10 @@
 import ts from '@/assets/xp/ts-flip.png'
 import next from '@/assets/xp/next-flip.png'
 import node from '@/assets/xp/node.png'
-import vue from '@/assets/xp/vue.png'
-import fire from '@/assets/xp/firebase.png'
-import sql from '@/assets/xp/mysql-flip.png'
 import mongo from '@/assets/xp/mongo.png'
+import ex from '@/assets/xp/ex-flip.png'
+import gcp from '@/assets/xp/gcp.png'
+import aws from '@/assets/xp/aws-flip.png'
 
 export default {
   name: 'XPIcons',
@@ -42,14 +42,14 @@ export default {
     return {
       imageList: [
         { src: next, alt: 'Next', link: 'https://nextjs.org/' },
-        { src: vue, alt: 'Vue', link: 'https://vuejs.org/' },
         { src: node, alt: 'Node', link: 'https://nodejs.org/' },
-        { src: fire, alt: 'Firebase', link: 'https://firebase.google.com/' },
         { src: mongo, alt: 'Mongo', link: 'https://www.mongodb.com/' },
-        { src: sql, alt: 'sql', link: 'https://www.mysql.com/' },
         { src: ts, alt: 'TypeScript', link: 'https://www.typescriptlang.org/' },
+        { src: ex, alt: 'Express', link: 'https://expressjs.com/' },
+        { src: gcp, alt: 'GCP', link: 'https://cloud.google.com/' },
+        {src: aws, alt: 'AWS', link: 'https://aws.amazon.com/'},
       ],
-      radius: 250, // The radius of the circular path
+      radius: 250,
       isHovering: false, // Tracks if any image is hovered
     }
   },
@@ -72,6 +72,12 @@ export default {
           return 'mongo-img'
         case 'TypeScript':
           return 'ts-img'
+        case 'Express':
+          return 'ex-img'
+        case 'GCP':
+          return 'gcp-img'
+        case 'AWS':
+          return 'aws-img'
         default:
           return ''
       }
@@ -89,7 +95,12 @@ export default {
       }
     },
 
-    // Methods to handle hover events
+    getResponsiveRadius() {
+      const w = globalThis.innerWidth
+      if (w <= 480) return 110
+      if (w <= 768) return 170
+      return 250
+    },
     handleHoverStart() {
       this.isHovering = true
     },
@@ -97,13 +108,25 @@ export default {
       this.isHovering = false
     },
   },
+  mounted() {
+    this.radius = this.getResponsiveRadius()
+    globalThis.addEventListener('resize', () => {
+      this.radius = this.getResponsiveRadius()
+    })
+  },
 }
 </script>
 
 <style scoped>
+.xp-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 225px;
+}
+
 .image-row {
   margin-bottom: 30px;
-  perspective: 500px; /* Add perspective for depth */
+  perspective: 500px;
 }
 
 .carousel-wrapper {
@@ -173,15 +196,68 @@ export default {
 }
 .ts-img {
   border: 3px solid #3178c6;
+
+}
+.ex-img {
+  border: 3px solid #95aec8;
+}
+
+a:has(.gcp-img) {
+  display: block;
+  position: relative;
+  border-radius: 25px;
+}
+
+a:has(.gcp-img)::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 28px;
+  padding: 3px;
+  background: linear-gradient(90deg, #4285f4, #ea4335, #fbbc05, #34a853);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.gcp-img {
+  display: block;
+}
+.aws-img {
+  border: 3px solid #ff991f;
 }
 
 /* Animation for continuous rotation */
 @keyframes rotateCarousel {
-  0% {
-    transform: rotateY(0deg); /* Start at 0 degrees */
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@media (max-width: 768px) {
+  .xp-wrapper {
+    height: 180px;
   }
-  100% {
-    transform: rotateY(360deg); /* Rotate full 360 degrees */
+
+  .carousel-item {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .xp-wrapper {
+    height: 150px;
+  }
+
+  .carousel-item {
+    width: 55px;
+    height: 55px;
   }
 }
 </style>

@@ -114,17 +114,11 @@ const handleSubmit = () => {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: 'Play', sans-serif;
   color: #ffffff;
   height: 100vh;
   text-align: center;
-  font-family: 'Play', sans-serif;
-  background-image: linear-gradient(
-    to top,
-    #000000 ,
-    /* Start with dark teal at the bottom */ #173643 100%,
-    /* Transition to black at the center */ #000000 100% /* End with dark teal at the top */
-  );
+  background: radial-gradient(ellipse at 50% 40%, #0a2a3a 0%, #002331 70%);
 }
 
 h1 {
@@ -160,10 +154,10 @@ p {
 }
 
 .form-container {
-  background-color: 	#001eff1a; /* Dark background for the form container */
+  background-color: rgba(0, 30, 255, 0.1);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(121, 103, 103, 0.2); /* Soft shadow effect */
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   width: 100%;
 }
 
@@ -204,8 +198,8 @@ p {
 .contact-form button {
   padding: 10px 20px;
   font-size: 1.2rem;
-  background-color: #007bff;
-  color: white;
+  background-color: #005bbf;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -213,7 +207,7 @@ p {
 }
 
 .contact-form button:hover {
-  background-color: #0056b3;
+  background-color: #004494;
 }
 
 .image-and-social {
@@ -249,5 +243,40 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  .name-email {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-group {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .social-icons img {
+    width: 36px;
+    height: 36px;
+  }
 }
 </style>

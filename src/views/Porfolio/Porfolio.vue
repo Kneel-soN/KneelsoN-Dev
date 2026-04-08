@@ -1,18 +1,71 @@
 <template>
   <div>
-    <Header />
-
     <div class="content">
-      <section id="profile">
+      <!-- 01 Student Profile -->
+      <section id="profile" data-reveal class="is-revealed">
         <Profile />
       </section>
-      <section id="showcase">
+
+      <div class="section-divider"></div>
+
+      <!-- 02 Company Profile -->
+      <section id="company" data-reveal>
+        <CompanyProfile />
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- 03 Background of Training & Project Involvement -->
+      <section id="training" data-reveal>
+        <TrainingBackground />
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- 04 Project Involvement Deliverables (Showcase) -->
+      <section id="showcase" data-reveal>
         <Showcase />
       </section>
-      <section id="creative">
+
+      <div class="section-divider"></div>
+
+      <!-- 05 Professional Learning & Development -->
+      <section id="learning" data-reveal>
+        <LearningDevelopment />
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- 06 Modern Techniques, Skills & Tools -->
+      <section id="techniques" data-reveal>
+        <ModernTechniques />
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- 07 Discipline-Related Solutions -->
+      <section id="solutions" data-reveal>
+        <DisciplineSolutions />
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- 08 OJT Reflection -->
+      <section id="reflection" data-reveal>
+        <OJTReflection />
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Creative / Personal Projects -->
+      <section id="creative" data-reveal>
         <Creative />
       </section>
-      <section id="contact">
+
+      <div class="section-divider"></div>
+
+      <!-- Contact -->
+      <section id="contact" data-reveal>
         <Contact />
       </section>
     </div>
@@ -20,125 +73,172 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, watch } from 'vue';
-import { useRoute } from 'vue-router'; // Vue Router hook to access the route
-import Header from '@/components/Header.vue';
-import HeaderContainer from '../HeaderContainer.vue';
-import Showcase from './Items/Showcase.vue';
-import Profile from './Items/Profile.vue';
-import Creative from './Items/Creative.vue';
-import Contact from './Items/Contact.vue';
+import { defineComponent, onMounted, onUnmounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import Lenis from 'lenis'
+import HeaderContainer from '../HeaderContainer.vue'
+import Profile from './Items/Profile.vue'
+import CompanyProfile from './Items/CompanyProfile.vue'
+import TrainingBackground from './Items/TrainingBackground.vue'
+import Showcase from './Items/Showcase.vue'
+import LearningDevelopment from './Items/LearningDevelopment.vue'
+import ModernTechniques from './Items/ModernTechniques.vue'
+import DisciplineSolutions from './Items/DisciplineSolutions.vue'
+import OJTReflection from './Items/OJTReflection.vue'
+import Creative from './Items/Creative.vue'
+import Contact from './Items/Contact.vue'
 
 export default defineComponent({
   name: 'Portfolio',
   components: {
     HeaderContainer,
-    Header,
     Profile,
+    CompanyProfile,
+    TrainingBackground,
     Showcase,
+    LearningDevelopment,
+    ModernTechniques,
+    DisciplineSolutions,
+    OJTReflection,
     Creative,
     Contact,
   },
   setup() {
-    // Access current route
-    const route = useRoute();
+    const route = useRoute()
+    let lenis: Lenis | null = null
+    let rafId: number | null = null
+    let revealObserver: IntersectionObserver | null = null
 
-    // Function to handle the smooth scroll to the hash element
+    const initLenis = () => {
+      if (window.innerWidth <= 991) return
+
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      })
+
+      const raf = (time: number) => {
+        lenis!.raf(time)
+        rafId = requestAnimationFrame(raf)
+      }
+      rafId = requestAnimationFrame(raf)
+    }
+
+    const initRevealObserver = () => {
+      revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed')
+              revealObserver!.unobserve(entry.target)
+            }
+          })
+        },
+        { threshold: 0.06, rootMargin: '0px 0px -40px 0px' },
+      )
+
+      document.querySelectorAll('section[data-reveal]').forEach((el) => {
+        revealObserver!.observe(el)
+      })
+    }
+
     const scrollToHash = () => {
-      const hash = route.hash;
-      if (hash) {
-        const element = document.querySelector(hash);
-        if (element) {
-          const headerHeight = document.querySelector('.header')?.clientHeight || 0;
-          let offset = 40;
-          if (hash === '#showcase') {
-            offset = 90; // Special offset for showcase section
-          }
-          if (hash === '#contact') {
-            offset = 90; // Special offset for contact section
-          }
-          const speed = 500; // Scroll speed in milliseconds
+      const hash = route.hash
+      if (!hash) return
+      const element = document.querySelector(hash)
+      if (!element) return
 
-          // Calculate target position
-          const targetPosition =
-            element.getBoundingClientRect().top + window.pageYOffset - headerHeight - offset;
-          smoothScrollTo(targetPosition, speed);
-        }
+      const headerHeight = document.querySelector('.header')?.clientHeight || 0
+      let offset = 40
+      if (hash === '#showcase') offset = 90
+      if (hash === '#contact') offset = 90
+
+      const targetOffset = -(headerHeight + offset)
+
+      if (lenis) {
+        lenis.scrollTo(element as HTMLElement, { offset: targetOffset })
+      } else {
+        const top = element.getBoundingClientRect().top + window.pageYOffset + targetOffset
+        window.scrollTo({ top, behavior: 'smooth' })
       }
-    };
+    }
 
-    // Function to perform smooth scrolling animation
-    const smoothScrollTo = (target: number, duration: number) => {
-      const start = window.pageYOffset;
-      const distance = target - start;
-      const startTime = performance.now();
-
-      const scroll = (currentTime: number) => {
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
-        window.scrollTo(0, start + distance * progress);
-
-        if (timeElapsed < duration) {
-          requestAnimationFrame(scroll); // Continue animating until the duration is completed
-        }
-      };
-
-      requestAnimationFrame(scroll); // Start the smooth scroll animation
-    };
-
-    // Call scrollToHash when the component is mounted
     onMounted(() => {
-      scrollToHash();
-    });
+      initLenis()
+      initRevealObserver()
+      scrollToHash()
+    })
 
-    // Watch for route hash changes to trigger scrolling
-    watch(
-      () => route.hash,
-      () => {
-        scrollToHash();
-      }
-    );
+    onUnmounted(() => {
+      if (rafId !== null) cancelAnimationFrame(rafId)
+      lenis?.destroy()
+      revealObserver?.disconnect()
+    })
 
-    return {
-      scrollToHash,
-    };
+    watch(() => route.hash, () => scrollToHash())
+
+    return {}
   },
-});
+})
 </script>
 
 <style scoped>
 .content {
   display: flex;
-  flex-direction: column; /* Stack sections vertically */
-  align-items: center; /* Center sections horizontally */
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
 section {
-  width: 100%; /* Ensure sections take full width */
-
+  width: 100%;
   box-sizing: border-box;
 }
-#creative {
-  margin-top: 100px;
+
+.section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(0, 184, 255, 0.3), transparent);
+  flex-shrink: 0;
 }
 
-#contact {
-  margin-top: 50px;
-}
-
-html {
-  scroll-behavior: smooth; /* Enable smooth scrolling for anchor links */
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
   section {
-    margin: 30px 0; /* Adjust margin for smaller screens */
-    padding: 15px; /* Adjust padding for smaller screens */
+    margin: 30px 0;
+    padding: 15px;
   }
-  .creative {
-    margin-top: 15px; /* Adjust margin for smaller screens */
+}
+</style>
+
+<!-- Global: clip-path section reveals + ambient overlay animation -->
+<style>
+section[data-reveal] {
+  clip-path: inset(6% 0% 6% 0%);
+  opacity: 0;
+  transition:
+    clip-path 1.1s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.85s ease;
+}
+
+section[data-reveal].is-revealed {
+  clip-path: inset(0% 0% 0% 0%);
+  opacity: 1;
+}
+
+/* Ambient breathing animation on all section overlay layers */
+.layer-overlay {
+  animation: ambientPulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes ambientPulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.06);
   }
 }
 </style>

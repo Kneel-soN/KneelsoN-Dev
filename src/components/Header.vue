@@ -68,12 +68,41 @@ export default {
 .navigation a {
   color: white;
   text-decoration: none;
-  font-size: 1rem; /* Increase the font size */
-  font-weight: bold; /* Make the text bold for more impact */
-  text-transform: uppercase; /* Optional: Makes the text uppercase */
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .navigation a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .headerStyle {
+    padding: 12px 16px;
+    height: auto;
+    width: calc(100% - 24px);
+    border-radius: 16px;
+    margin-top: 8px;
+  }
+
+  .navigation li {
+    margin-right: 10px;
+  }
+
+  .navigation a {
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navigation li {
+    margin-right: 7px;
+  }
+
+  .navigation a {
+    font-size: 0.65rem;
+  }
 }
 </style>

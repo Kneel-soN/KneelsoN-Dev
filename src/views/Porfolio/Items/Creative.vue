@@ -88,4 +88,19 @@ p {
   line-height: 1.6;
   margin-bottom: 15px;
 }
+
+@media (max-width: 768px) {
+  .creative-page {
+    margin-top: 20px;
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.97rem;
+  }
+}
 </style>

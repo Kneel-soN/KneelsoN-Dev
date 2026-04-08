@@ -1,7 +1,40 @@
 @import './base.css'; /* Import base styles if defined in base.css */
 
+/* Let Lenis control scrolling — no native smooth scroll override */
+html {
+  scroll-behavior: auto;
+}
+
+/* Lenis: prevent double scroll on body */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+html,
 body {
-  background-color: #002331e8;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  background-color: #002331;
 }
 
 @media (min-width: 1024px) {

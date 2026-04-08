@@ -1,7 +1,9 @@
 <template>
   <div class="profile-page">
-    <!-- Parallax background section -->
-    <div class="parallax-background" :style="backgroundStyle"></div>
+    <!-- Parallax background layers -->
+    <div class="parallax-layer layer-bg" :style="layerBgStyle"></div>
+    <div class="parallax-layer layer-mid" :style="layerMidStyle"></div>
+    <div class="parallax-layer layer-fg" :style="layerFgStyle"></div>
 
     <div class="content">
       <div class="text-content">
@@ -46,9 +48,9 @@
           <a href="https://www.tip.edu.ph/" target="_blank"
             ><strong>Technological Institute of the Philippines - Manila</strong></a
           >, where I am pursuing a degree in Computer Engineering. In addition to my studies, I have
-          experience as a Backend Developer at <strong>LRY Marketing</strong>, where I am
-          responsible for developing and maintaining backend systems, optimizing database
-          performance, and ensuring the security and scalability of our applications.
+          completed my OJT at the <strong>Technological Institute of the Philippines - Manila</strong>
+          CPE Department, where I developed and deployed a full-stack academic document management
+          system — TIP DocHub — handling cloud migration, multi-role authentication, and API security.
         </p>
       </div>
 
@@ -73,11 +75,12 @@
           </a>
         </div>
         <button class="styled-button" @click="downloadResume">
-          <img src="../../../assets/downloads.png" alt="Download Icon" class="button-icon" />
+          <img src="../../../assets/downloads.png" alt="Download" class="button-icon" />
           Download Resume
         </button>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -85,6 +88,7 @@
 import { create } from 'glitched-writer'
 
 export default {
+  components: {},
   data() {
     return {
       scrollY: 0,
@@ -92,92 +96,97 @@ export default {
     }
   },
   computed: {
-    backgroundStyle() {
+    layerBgStyle() {
       const scale = 1 + this.scrollY / 1000
-      const maxScale = this.scrollY > 165 ? 1.2 : scale
-      const translateY = this.scrollY * 0.2
-
+      const translateY = this.scrollY * 0.15
       return {
-        transform: `translateY(${translateY}px) scale(${Math.min(maxScale, 1.2)})`,
+        transform: `translateY(${translateY}px) scale(${Math.min(scale, 1.2)})`,
       }
+    },
+    layerMidStyle() {
+      return {
+        transform: `translateY(${this.scrollY * 0.05}px)`,
+      }
+    },
+    layerFgStyle() {
+      return {
+        transform: `translateY(${this.scrollY * -0.08}px)`,
+      }
+    },
+    // Keep for backward compatibility with emit
+    backgroundStyle() {
+      return this.layerBgStyle
     },
   },
   methods: {
-    // Scroll handler to adjust background style
     onScroll() {
       if (!this.ticking) {
         window.requestAnimationFrame(() => {
           this.scrollY = window.scrollY
           this.ticking = false
-          this.$emit('background-style-updated', this.backgroundStyle) // Emit updated background style
+          this.$emit('background-style-updated', this.backgroundStyle)
         })
         this.ticking = true
       }
     },
-    // Apply glitch effect to the text
     applyGlitchEffect() {
       const glitchTextElement = this.$refs.glitchText as HTMLElement
       const writer = create(glitchTextElement)
-      let phrases = ['Neilson', 'KneelsoN', 'nɪ́jlsən', 'ニールソン']
-
+      const phrases = ['Neilson', 'KneelsoN', 'nɪ́jlsən', 'ニールソン']
       writer.queueWrite(phrases, 2000, true)
     },
-    // Function to download resume
     downloadResume() {
-      // Create a temporary anchor element
       const link = document.createElement('a')
-      link.href = '/NeilsonDiñosoResume.pdf' // Path to the PDF in the public folder
-      link.download = 'NeilsonDiñosoResume.pdf' // Set the download file name
-      link.click() // Trigger the download
+      link.href = '/NeilsonDiñosoResume.pdf'
+      link.download = 'NeilsonDiñosoResume.pdf'
+      link.click()
     },
   },
   mounted() {
-    window.addEventListener('scroll', this.onScroll) // Listen for scroll events
-    this.onScroll() // Initialize on mount to send the initial style
-    this.applyGlitchEffect() // Apply the glitch effect to the text
+    window.addEventListener('scroll', this.onScroll)
+    this.onScroll()
+    this.applyGlitchEffect()
   },
   destroyed() {
-    window.removeEventListener('scroll', this.onScroll) // Clean up event listener
+    window.removeEventListener('scroll', this.onScroll)
   },
 }
 </script>
 
 <style scoped>
-/* Importing the font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 .styled-button {
-  background-color: #00ff9f; /* Green background */
-  color: black; /* White text color */
-  border: none; /* Remove default border */
-  padding: 10px 20px; /* Padding around text */
-  text-align: center; /* Center text */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Ensure it's inline-block */
-  font-size: 16px; /* Set font size */
-  margin: 10px 0; /* Margin for spacing */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 5px; /* Rounded corners */
+  background-color: #00ff9f;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
   transition:
     background-color 0.3s ease,
-    transform 0.2s ease; /* Smooth transition for background and scale */
+    transform 0.2s ease;
 }
 
-/* Button hover effect */
 .styled-button:hover {
-  background-color: #00b8ff; /* Darker green on hover */
-  transform: scale(1.05); /* Slightly increase size on hover */
+  background-color: #00b8ff;
+  transform: scale(1.05);
 }
 
-/* Button focus effect */
 .styled-button:focus {
-  outline: none; /* Remove focus outline */
-  box-shadow: 0 0 10px rgba(72, 144, 228, 0.5); /* Add a glow effect */
+  outline: none;
+  box-shadow: 0 0 10px rgba(72, 144, 228, 0.5);
 }
+
 .styled-button img.button-icon {
-  width: 20px; /* Adjust the image size */
+  width: 20px;
   height: 20px;
-  margin-right: 8px; /* Space between image and text */
+  margin-right: 8px;
   transform: translateY(0.2rem);
 }
 
@@ -195,9 +204,9 @@ export default {
 
 .raleway {
   font-family: 'Raleway', sans-serif;
-  font-weight: 400; /* You can adjust the weight here */
+  font-weight: 400;
   font-style: normal;
-  font-optical-sizing: auto; /* Automatically adjusts the font's optical size for better readability */
+  font-optical-sizing: auto;
 }
 
 .profile-page {
@@ -206,29 +215,47 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   overflow: hidden;
 }
 
-.parallax-background {
+/* Parallax layers */
+.parallax-layer {
   position: absolute;
-  top: 0;
+  top: -20%;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-image: url('@/assets/cyber4.gif'); /* Replace with your background image */
-  opacity: 75%;
+  height: 140%;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.layer-bg {
+  background-image: url('@/assets/cyber4.gif');
   background-size: cover;
   background-position: center;
-  will-change: transform;
-  z-index: -1;
-  transition: transform 0.2s ease-out;
+  opacity: 0.75;
+  z-index: 0;
+  transition: transform 0.1s linear;
+}
+
+.layer-mid {
+  background: radial-gradient(ellipse at center, transparent 40%, #000d1a 100%);
+  opacity: 0.65;
+  z-index: 1;
+  transition: transform 0.15s linear;
+}
+
+.layer-fg {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, transparent 35%);
+  z-index: 2;
+  transition: transform 0.2s linear;
 }
 
 .content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -241,6 +268,7 @@ export default {
   animation: fadeIn 1s ease-out forwards;
   animation-delay: 0.5s;
   border-radius: 50px;
+  margin-top: 40px;
 }
 
 .text-content {
@@ -285,22 +313,38 @@ export default {
   transform: scale(1.1);
 }
 
+/* Tech section at the bottom of the profile/resume area */
+.profile-tech-section {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin-top: 50px;
+  padding-bottom: 70px;
+}
+
+.tech-label {
+  color: #00b8ff;
+  font-family: 'Play', sans-serif;
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 a {
-  text-decoration: none; /* No underline on links */
-  color: white; /* White color for the link */
+  text-decoration: none;
+  color: white;
 }
 
 a:hover {
-  text-decoration: underline; /* Optional: underline on hover */
+  text-decoration: underline;
 }
 
 h1 {
@@ -312,5 +356,44 @@ p {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 18px;
+    margin-top: 80px;
+    border-radius: 24px;
+  }
+
+  .text-content {
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .text-content h1 {
+    font-size: 2rem;
+  }
+
+  .text-content p {
+    font-size: 1rem;
+  }
+
+  .image-and-social {
+    margin-top: 24px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .image-content img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile-tech-section {
+    margin-top: 24px;
+    padding-bottom: 40px;
+  }
 }
 </style>
