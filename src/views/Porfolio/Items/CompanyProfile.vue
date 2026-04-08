@@ -26,7 +26,7 @@
         <div class="info-card" v-motion-pop-visible>
           <div class="card-icon">📍</div>
           <h3>Location</h3>
-          <p>Manila, Philippines</p>
+          <p>1338 Arlegui St., Quiapo, Manila, Philippines</p>
         </div>
 
         <div class="info-card" v-motion-pop-visible>
