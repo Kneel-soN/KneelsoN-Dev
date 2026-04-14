@@ -115,7 +115,7 @@ export default {
         },
         {
           icon: '🎯',
-          title: 'Initiative Defines You',
+          title: 'Initiative Defines Me',
           desc: 'I chose to go beyond the minimum. That decision defined my OJT — and confirmed the kind of engineer I want to be.',
         },
       ],

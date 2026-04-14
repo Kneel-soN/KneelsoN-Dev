@@ -60,7 +60,7 @@
         <a href="https://www.linkedin.com/in/neilsondinoso/" target="_blank">
           <img src="../../../assets/linkedin-logo.png" alt="LinkedIn" />
         </a>
-        <a href="https://www.facebook.com/neeeil24/" target="_blank">
+        <a href="https://www.facebook.com/neeeeil24/" target="_blank">
           <img src="../../../assets/facebook.png" alt="Facebook" />
         </a>
         <a href="https://www.facebook.com/profile.php?id=61559666672259" target="_blank">

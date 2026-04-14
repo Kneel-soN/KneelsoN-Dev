@@ -137,8 +137,8 @@ export default {
     },
     downloadResume() {
       const link = document.createElement('a')
-      link.href = '/NeilsonDiñosoResume.pdf'
-      link.download = 'NeilsonDiñosoResume.pdf'
+      link.href = '/NEILSON_DIÑOSO_RESUME-Latest.pdf'
+      link.download = 'NEILSON_DIÑOSO_RESUME-Latest.pdf'
       link.click()
     },
   },
