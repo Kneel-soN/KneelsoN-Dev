@@ -16,7 +16,7 @@
 
         <!-- Paragraphs with the raleway class applied -->
         <p class="raleway">
-          With 3 years of hands-on programming experience and 3 year of professional work
+          With 3 years of hands-on programming experience and 3 years of professional work
           experience, I have developed strong problem-solving and development skills. I have built
           and maintained multiple web applications and contributed to several projects using modern
           technologies and frameworks.
