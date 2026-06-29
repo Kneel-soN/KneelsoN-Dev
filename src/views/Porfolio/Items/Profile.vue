@@ -14,7 +14,7 @@
 
         <!-- Paragraphs with the raleway class applied -->
         <p class="raleway">
-          With 3 years of hands-on programming experience and 1 year of professional work
+          With 3 years of hands-on programming experience and 3 year of professional work
           experience, I have developed strong problem-solving and development skills. I have built
           and maintained multiple web applications and contributed to several projects using modern
           technologies and frameworks.
@@ -42,13 +42,13 @@
           >, which enables me to manage data efficiently and scale applications.
         </p>
         <p class="raleway">
-          Currently, I am enrolled at the
+          Currently, I graduated at the
           <a href="https://www.tip.edu.ph/" target="_blank"
             ><strong>Technological Institute of the Philippines - Manila</strong></a
-          >, where I am pursuing a degree in Computer Engineering. In addition to my studies, I have
-          experience as a Backend Developer at <strong>LRY Marketing</strong>, where I am
-          responsible for developing and maintaining backend systems, optimizing database
-          performance, and ensuring the security and scalability of our applications.
+          >, where I pursued a degree in Computer Engineering. In addition to my studies, I have
+          experience as a Backend Developer to Software Developer now to Head Developer at <strong>LRY Marketing</strong>, where I am
+          responsible for developing and maintaining operational systems, optimizing automated workflows
+          and ensuring the security and scalability of our applications.
         </p>
       </div>
 
