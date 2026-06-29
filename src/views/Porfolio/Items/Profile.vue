@@ -126,8 +126,8 @@ export default {
     downloadResume() {
       // Create a temporary anchor element
       const link = document.createElement('a')
-      link.href = '/NeilsonDiñosoResume.pdf' // Path to the PDF in the public folder
-      link.download = 'NeilsonDiñosoResume.pdf' // Set the download file name
+      link.href = '/Neilson_Dinoso_Resume_Head_Developer-1.pdf' // Path to the PDF in the public folder
+      link.download = 'Neilson_Dinoso_Resume_Head_Developer-1.pdf' // Set the download file name
       link.click() // Trigger the download
     },
   },
