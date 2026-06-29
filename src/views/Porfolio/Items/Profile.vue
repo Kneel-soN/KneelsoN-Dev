@@ -16,7 +16,7 @@
 
         <!-- Paragraphs with the raleway class applied -->
         <p class="raleway">
-          With 3 years of hands-on programming experience and 1 year of professional work
+          With 3 years of hands-on programming experience and 3 year of professional work
           experience, I have developed strong problem-solving and development skills. I have built
           and maintained multiple web applications and contributed to several projects using modern
           technologies and frameworks.
@@ -44,10 +44,10 @@
           >, which enables me to manage data efficiently and scale applications.
         </p>
         <p class="raleway">
-          Currently, I am enrolled at the
+        I graduated from
           <a href="https://www.tip.edu.ph/" target="_blank"
             ><strong>Technological Institute of the Philippines - Manila</strong></a
-          >, where I am pursuing a degree in Computer Engineering. In addition to my studies, I have
+          >, where I pursued a degree in Computer Engineering. In addition to my studies, I have
           completed my OJT at the <strong>Technological Institute of the Philippines - Manila</strong>
           CPE Department, where I developed and deployed a full-stack academic document management
           system — TIP DocHub — handling cloud migration, multi-role authentication, and API security.
